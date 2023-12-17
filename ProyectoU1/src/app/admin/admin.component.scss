@@ -1,0 +1,127 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  padding-left: 200px;
+}
+
+.sidebar {
+  background-color: orange;
+  color: white;
+  width: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+
+.sidebar-content {
+  padding-top: 20px;
+  height: 100%;
+}
+
+.sidebar-content img {
+  max-width: 100%;
+  max-height: 100px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.sidebar-content h2 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: #052241; 
+}
+
+.sidebar-content ul {
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+
+.sidebar-content li {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.sidebar-content a {
+  color: #052241;
+  text-decoration: none;
+  display: flex;
+  align-items: center; 
+  padding: 8px; 
+  transition: background-color 0.3s, color 0.3s; 
+  justify-content: center;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.sidebar-content a:hover,
+.sidebar-content a:focus,
+.sidebar-content a.active {
+  background-color: #052241; 
+  color: white;
+}
+
+.sidebar-content a.active i {
+  color: white; 
+}
+
+.sidebar-content i {
+  color: #052241; 
+  margin-right: 10px;
+}
+
+.link-text {
+  color: #052241;
+  transition: color 0.3s; 
+}
+
+.sidebar-content a:hover .link-text,
+.sidebar-content a:focus .link-text,  
+.sidebar-content a.active .link-text {
+  color: white;
+}
+.sidebar-content a:hover i,
+.sidebar-content a:focus i {
+  color: white; 
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.main-content h1,
+.main-content router-outlet {
+  text-align: center;
+}
+.sidebar-content .logo-container {
+  text-align: center;
+  margin-bottom: 20px; 
+}
+
+.sidebar-content .logo-container img {
+  max-width: 100%;
+  max-height: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.sidebar-content .logo-text {
+  color: #052241;
+  font-size: 24px; 
+  font-weight: bold;
+}
+
+/* Divi del logo y opciones */
+.sidebar-content .divider {
+  border-top: 2px solid #052241; 
+  margin-bottom: 20px; 
+  height: 0; 
+  width: 100%; 
+  margin-top: 10px;
+}
+
+
+

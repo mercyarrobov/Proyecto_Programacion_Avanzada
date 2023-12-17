@@ -1,0 +1,34 @@
+<div class="table-and-details-container">
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let evaluacion of evaluaciones">
+          <td>{{ evaluacion.id }}</td>
+          <td>{{ evaluacion.nombre }}</td>
+          <td>
+              <button>Aceptar</button>
+              <button>Rechazar</button>
+              <button (click)="verInfoFormulario(evaluacion)">Ver Info Formulario</button>
+            </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="mostrarInfo" class="details-container">
+    <h3>Datos del usuario seleccionado</h3>
+    <p>ID: {{ formularioSeleccionada?.id }}</p>
+    <p>Nombre: {{ formularioSeleccionada?.nombre }}</p>
+    <p>Correo: {{ formularioSeleccionada?.email }}</p>
+    <p>Telefono: {{ formularioSeleccionada?.telefono }}</p>
+    <p>Fecha: {{ formularioSeleccionada?.fecha }}</p>
+
+  </div>
+</div>

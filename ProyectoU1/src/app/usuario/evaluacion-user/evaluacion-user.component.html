@@ -1,0 +1,110 @@
+<div class="container">
+    <header>
+        <img class="logo"
+            src="https://th.bing.com/th/id/R.b35215bb3be3ed577c5cea7d96d033c1?rik=KB4tsKSJKfVhkQ&pid=ImgRaw&r=0"
+            alt="Logo de tu aplicación">
+        <div>
+            <h1 style="color: #052241;">DevSpace MKJJ</h1>
+        </div>
+    </header>
+    <h1 class="mt-5 mb-4 text-center">Evaluación <img src="   https://cdn-icons-png.flaticon.com/512/3220/3220765.png " alt="" style="width: 40px; height: 40px;"></h1>
+   <form [formGroup]="form" (ngSubmit)="save($event)">
+    <ol class="list-group">
+        <div class="list-group-item">
+            <li>¿Qué es la herencia en POO?<img src="https://cdn-icons-png.flaticon.com/512/2483/2483614.png" width="25px" height="25px" alt=""></li>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions1" value="a">
+                <label class="form-check-label"> <strong>a.</strong> Tipo de dato en Java.</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions1" value="b">
+                <label class="form-check-label"><strong>b.</strong> Concepto que permite a una clase heredar propiedades y comportamientos de otra clase.</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions1" value="c">
+                <label class="form-check-label"><strong>c.</strong> Bucle en programación.</label>
+            </div>
+            <div *ngIf="form.get('questions1')?.errors && form.get('questions1')?.touched">
+                <small *ngIf="form.get('questions1')?.hasError('required')">Debes seleccionar una opción.</small>
+            </div>
+        </div>
+
+        <div class="list-group-item">
+            <li>Diferencia entre if y switch.<img src="https://cdn-icons-png.flaticon.com/512/8744/8744577.png" width="25px" height="25" alt=""></li>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions2" value="a">
+                <label class="form-check-label"><strong>a.</strong> No hay diferencia entre ellos.</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions2" value="b">
+                <label class="form-check-label"><strong>b.</strong> "if" evalúa una expresión booleana, mientras que "switch" evalúa una expresión y busca el caso que coincida con el valor de esa expresión.</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions2" value="c">
+                <label class="form-check-label"><strong>c.</strong> "switch" siempre es más eficiente que "if".</label>
+            </div>
+            <div *ngIf="form.get('questions2')?.errors && form.get('questions2')?.touched">
+                <small *ngIf="form.get('questions2')?.hasError('required')">Debes seleccionar una opción.</small>
+            </div>
+        </div>
+
+        <div class="list-group-item">
+            <li>Diferencia entre arreglo y lista.<img src="https://cdn-icons-png.flaticon.com/512/4872/4872128.png" width="20px" height="20px" alt=""></li>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions3" value="a">
+                <label class="form-check-label"><strong>a.</strong> No hay diferencia entre ellos.</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions3" value="b">
+                <label class="form-check-label"><strong>b.</strong> Arreglo almacena elementos de manera contigua en memoria, mientras que una lista puede ser una estructura enlazada o dinámica.</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions3" value="c">
+                <label class="form-check-label"><strong>c.</strong> Una lista siempre tiene un tamaño fijo, mientras que un arreglo puede cambiar de tamaño dinámicamente.</label>
+            </div>
+            <div *ngIf="form.get('questions3')?.errors && form.get('questions3')?.touched">
+                <small *ngIf="form.get('questions3')?.hasError('required')">Debes seleccionar una opción.</small>
+            </div>
+        </div>
+
+        <div class="list-group-item">
+            <li>¿Qué es un bucle?<img src="https://cdn-icons-png.flaticon.com/512/4536/4536684.png" width="25px" height="25px" alt=""></li>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions4" value="a">
+                <label class="form-check-label"><strong>a.</strong> Estructura de control que permite repetir un bloque de código hasta que se cumple una condición específica.</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions4" value="b">
+                <label class="form-check-label"><strong>b.</strong> Tipo de dato en programación.</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" formControlName="questions4" value="c">
+                <label class="form-check-label"><strong>c.</strong> Operador lógico en Java.</label>
+            </div>
+            <div *ngIf="form.get('questions4')?.errors && form.get('questions4')?.touched">
+                <small *ngIf="form.get('questions4')?.hasError('required')">Debes seleccionar una opción.</small>
+            </div>
+        </div>
+
+        <div class="list-group-item">
+            <li>Resuelve el ejercicio de Programación Avanzada Básica</li>
+            <p>El desafío consiste en escribir un programa en Java que permita al usuario ingresar dos números enteros. El programa deberá solicitar al usuario que introduzca el primer número, luego el segundo, y posteriormente calcular la suma de ambos. Finalmente, se debe imprimir el resultado de manera clara y legible.</p>
+            <textarea class="form-control" formControlName="ejercicio" placeholder="Ingresa tu código Java aquí"></textarea>
+            <p>
+                {{ this.form.get('ejercicio')?.value ? this.form.get('ejercicio')?.value.length : 0 }}/2000
+            </p>
+            <div *ngIf="form.get('ejercicio')?.errors && form.get('ejercicio')?.touched">
+                <small *ngIf="form.get('ejercicio')?.hasError('required')">Es un campo Requerido</small>
+                <small *ngIf="form.get('ejercicio')?.hasError('maxlength')">Máximo deben contener 2000 caracteres</small>
+                <small *ngIf="form.get('ejercicio')?.hasError('minlength')">Mínimo deben contener 100 caracteres</small>
+            </div>
+        </div>
+        
+    </ol>
+    <div class="text-center mt-4">
+        <button type="submit">Enviar</button>
+    </div>
+    <div *ngIf="showSuccessMessage" class="success-message">Se ha enviado las respuestas correctamente!🚀
+      </div>
+</form>
+</div>

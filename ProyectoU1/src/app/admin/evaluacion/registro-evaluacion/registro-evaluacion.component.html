@@ -1,0 +1,35 @@
+<div class="table-and-details-container">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let evaluacion of evaluaciones">
+            <td>{{ evaluacion.id }}</td>
+            <td>{{ evaluacion.nombre }}</td>
+            <td>
+                <button>Aceptar</button>
+                <button>Rechazar</button>
+                <button (click)="verInfoEvaluacion(evaluacion)">Ver Info Evaluación</button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div *ngIf="mostrarInfo" class="details-container">
+      <h3>Detalles de Evaluación Seleccionada</h3>
+      <p>ID: {{ evaluacionSeleccionada?.id }}</p>
+      <p>Nombre: {{ evaluacionSeleccionada?.nombre }}</p>
+      <p>Pregunta1: {{ evaluacionSeleccionada?.pregunta1 }}</p>
+      <p>Pregunta2: {{ evaluacionSeleccionada?.pregunta2 }}</p>
+      <p>Pregunta3: {{ evaluacionSeleccionada?.pregunta3 }}</p>
+
+    </div>
+  </div>
+  
