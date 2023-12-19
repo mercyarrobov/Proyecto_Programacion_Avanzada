@@ -1,13 +1,16 @@
 <div class="container">
-    <header>
-        <img class="logo"
-            src="https://th.bing.com/th/id/R.b35215bb3be3ed577c5cea7d96d033c1?rik=KB4tsKSJKfVhkQ&pid=ImgRaw&r=0"
-            alt="Logo de tu aplicación">
+    <header style="background-color: #FFA500; padding: 5px; display: flex; align-items: center;">
+        <div style="display: flex; flex-direction: column; align-items: center; margin-right: 150px;">
+            <img class="logo"
+                src="https://th.bing.com/th/id/R.b35215bb3be3ed577c5cea7d96d033c1?rik=KB4tsKSJKfVhkQ&pid=ImgRaw&r=0"
+                alt="Logo de tu aplicación" style="width: 80px; height: auto; margin-bottom: 5px; margin-left: 70px; ">
+            <h1 style="color: #052241; font-size: 20px; margin-left: 90px; margin-left: 80px;">DevSpace MKJJ</h1>
+        </div>
         <div>
-            <h1 style="color: #052241;">DevSpace MKJJ</h1>
+            <h1 class="encabezado-formulario" style="font-weight: bold; font-size: 30px; color:#052241; text-align: center;" ><img src="https://cdn-icons-png.flaticon.com/512/3220/3220765.png " alt="" style="width: 40px; height: 40px;">
+                EVALUACIÓN PARA BECA DEL CURSO DE PROGRAMACIÓN</h1>
         </div>
     </header>
-    <h1 class="mt-5 mb-4 text-center">Evaluación <img src="   https://cdn-icons-png.flaticon.com/512/3220/3220765.png " alt="" style="width: 40px; height: 40px;"></h1>
    <form [formGroup]="form" (ngSubmit)="save($event)">
     <ol class="list-group">
         <div class="list-group-item">
