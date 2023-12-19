@@ -7,7 +7,8 @@ import { AdminModule } from './admin/admin.module';
 import { RouterModule } from '@angular/router';
 import { UsuarioModule } from './usuario/usuario.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [
     AppComponent
@@ -18,7 +19,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     AdminModule,
     UsuarioModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
