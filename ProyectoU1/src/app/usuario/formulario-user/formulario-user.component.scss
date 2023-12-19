@@ -76,7 +76,7 @@ input:focus, select:focus, textarea:focus {
   font-size: 16px; /* Ajusta el tamaño de la fuente según tu preferencia */
   transition: opacity 0.5s ease-in-out; /* Agrega una transición de opacidad */
 }
-
+ /* estilos de los mensajes de confirmacion */
 .mensaje-temporal.oculto {
   opacity: 0;
   pointer-events: none; /* Evita interacciones con el mensaje oculto */
