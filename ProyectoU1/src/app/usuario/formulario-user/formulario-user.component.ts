@@ -22,6 +22,8 @@ public mostrarMensajeTemporal = false;
     this.buildForm();
   }
   ngOnInit(): void { }
+  //definicion de los campos del formulario
+//implemenatcion de validaciones para los campos
 
   private buildForm() {
     this.form = this.formBuilder.group({
