@@ -13,10 +13,12 @@
           <td>{{ evaluacion.id }}</td>
           <td>{{ evaluacion.nombre }}</td>
           <td>
-              <button>Aceptar</button>
-              <button>Rechazar</button>
-              <button (click)="verInfoFormulario(evaluacion)">Ver Info Formulario</button>
-            </td>
+            <button class="btn btn-success btn-margin" (click)="aceptarSolicitud()">Aceptar</button>
+<button class="btn btn-danger btn-margin" (click)="rechazarSolicitud()">Rechazar</button>
+<button class="btn btn-info btn-margin" (click)="verInfoFormulario(evaluacion)">Ver Info Formulario</button>
+
+
+          </td>
         </tr>
       </tbody>
     </table>
@@ -29,6 +31,5 @@
     <p>Correo: {{ formularioSeleccionada?.email }}</p>
     <p>Telefono: {{ formularioSeleccionada?.telefono }}</p>
     <p>Fecha: {{ formularioSeleccionada?.fecha }}</p>
-
   </div>
 </div>

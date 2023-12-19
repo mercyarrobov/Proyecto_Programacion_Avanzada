@@ -1,1 +1,10 @@
-<p>ver-info-formulario works!</p>
+<div class="container modal-container d-flex flex-column align-items-center justify-content-center">
+    <h2>Detalles del Formulario</h2>
+    <p>ID: {{ data.id }}</p>
+    <p>Nombre: {{ data.nombre }}</p>
+    <p>Correo: {{ data.email }}</p>
+    <p>Teléfono: {{ data.telefono }}</p>
+    <p>Fecha: {{ data.fecha }}</p>
+    <button class="btn btn-primary mt-3" (click)="onNoClick()">Cerrar</button>
+  </div>
+  
