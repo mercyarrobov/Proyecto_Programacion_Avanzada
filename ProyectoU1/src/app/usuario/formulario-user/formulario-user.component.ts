@@ -67,7 +67,7 @@ public mostrarMensajeTemporal = false;
     }
   }
   
-  
+  //incorporacion de recapcha para los terminos y condiciones
 
 resolved(captchaResponse: string| null) {
   this.captchaValid = (captchaResponse && captchaResponse.length > 0) ? true : false;
