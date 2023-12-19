@@ -7,6 +7,7 @@ import { FormularioUserComponent } from './formulario-user/formulario-user.compo
 import { EvaluacionUserComponent } from './evaluacion-user/evaluacion-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RecaptchaModule } from 'ng-recaptcha';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    RecaptchaModule
   ],
   providers: [],
   bootstrap: [UsuarioComponent]

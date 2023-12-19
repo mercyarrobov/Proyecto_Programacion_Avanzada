@@ -7,6 +7,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 10px;
+    margin-bottom: 10px;
     padding: 20px;
 }
 
@@ -35,49 +36,28 @@ textarea {
     border-bottom: 1px solid #dee2e6;
 }
 
-/* Estilos para el encabezado */
 header {
     background-color: #FFA500;
-    /* Fondo azul Bootstrap */
     color: #fff;
-    /* Letra blanca */
     padding: 20px;
     text-align: center;
     display: flex;
-    /* Utilizar flexbox para alinear elementos horizontalmente */
     justify-content: center;
-    /* Centrar los elementos horizontalmente */
     align-items: center;
-    /* Centrar los elementos verticalmente */
 }
 
-/* Estilos para el logo */
-.logo {
-    max-width: 10%;
-    /* Ajusta el tamaño del logo según tu preferencia */
-    margin-right: 10px;
-    /* Espaciado a la derecha del logo */
-}
-
-/* Estilos para el botón */
 button {
     background-color: #FFA500;
-    /* Fondo azul Bootstrap */
     color: #fff;
-    /* Letra blanca */
     padding: 10px 20px;
-    /* Espaciado interno */
     border: none;
-    /* Sin borde */
     border-radius: 5px;
-    /* Borde redondeado */
     cursor: pointer;
-    /* Cursor de puntero */
 }
 ol {
     list-style: none;
     counter-reset: item;
-    padding: 0;
+    padding-top: 35px;
 }
 
 li {
@@ -87,27 +67,25 @@ li {
 
 li::before {
     content: counter(item) ". ";
-    color: #052241; /* Color azul Bootstrap */
+    color: #052241; 
     font-weight: bold;
     margin-right: 10px;
 }
-/* Estilos específicos para el elemento li que mencionaste */
 li:nth-child(1) {
-    color: #052241; /* Cambiar color del texto */
-    font-weight: bold; /* Hacer el texto en negrita */
+    color: #052241;
+    font-weight: bold; 
 }
 small {
     color: red;
   }
-/* Agrega estilos para centrar el mensaje en la pantalla */
 .success-message {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #5cb85c; /* Puedes cambiar el color de fondo según tus preferencias */
-    color: #ffffff; /* Puedes cambiar el color del texto según tus preferencias */
-    padding: 45px; /* Ajusta el padding para hacer el cuadro más grande verticalmente */
+    background-color: #5cb85c;
+    color: #ffffff;
+    padding: 45px; 
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     font-size: 20px;
