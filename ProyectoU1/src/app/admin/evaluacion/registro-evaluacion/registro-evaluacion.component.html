@@ -13,7 +13,9 @@
             <td>{{ evaluacion.id }}</td>
             <td>{{ evaluacion.nombre }}</td>
             <td>
-
+              <button class="btn btn-success btn-margin" (click)="aceptarSolicitud()">Aceptar</button>
+              <button class="btn btn-danger btn-margin" (click)="rechazarSolicitud()">Rechazar</button>
+                <button class="btn btn-info btn-margin" (click)="verInfoEvaluacion(evaluacion)">Ver Info Evaluación</button>
               </td>
           </tr>
         </tbody>
