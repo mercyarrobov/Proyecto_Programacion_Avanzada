@@ -13,15 +13,13 @@
             <td>{{ evaluacion.id }}</td>
             <td>{{ evaluacion.nombre }}</td>
             <td>
-                <button>Aceptar</button>
-                <button>Rechazar</button>
-                <button (click)="verInfoEvaluacion(evaluacion)">Ver Info Evaluación</button>
+
               </td>
           </tr>
         </tbody>
       </table>
     </div>
-  
+
     <div *ngIf="mostrarInfo" class="details-container">
       <h3>Detalles de Evaluación Seleccionada</h3>
       <p>ID: {{ evaluacionSeleccionada?.id }}</p>
@@ -32,4 +30,3 @@
 
     </div>
   </div>
-  
