@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { VerInfoEvaluacionComponent } from '../ver-info-evaluacion/ver-info-evaluacion.component';
 
 
 @Component({
@@ -9,17 +10,39 @@ import { Router } from '@angular/router';
 })
 export class RegistroEvaluacionComponent {
   evaluaciones: any[] = [
-    { id: 1, nombre: 'Mercy Arrobo', pregunta1:'jdddddhgjh', pregunta2: '0999999999', pregunta3: '-dddd' },
-    { id: 2, nombre: 'Johana Salazar', pregunta1:'jdddddhgjh', pregunta2: '0999999999', pregunta3: '-dddd' },
-    { id: 3, nombre: 'Maria Perez', pregunta1:'jdddddhgjh', pregunta2: '0999999999', pregunta3: '-dddd' },
-    { id: 4, nombre: 'Pedro Perez', pregunta1:'jdddddhgjh', pregunta2: '0999999999', pregunta3: '-dddd' },
+    { id: 1, nombre: 'Mercy Arrobo', pregunta1:'Herencia',
+      pregunta2: 'If and Switch',
+      pregunta3: 'Arreglos y listas',
+      pregunta4: 'Bucles',
+      pregunta5: 'Código' },
+    { id: 2, nombre: 'Johana Salazar', pregunta1:'Herencia',
+      pregunta2: 'If and Switch',
+      pregunta3: 'Arreglos y listas',
+      pregunta4: 'Bucles',
+      pregunta5: 'Código' },
+    { id: 3, nombre: 'Maria Perez', pregunta1:'Herencia',
+      pregunta2: 'If and Switch',
+      pregunta3: 'Arreglos y listas',
+      pregunta4: 'Bucles',
+      pregunta5: 'Código' },
+    { id: 4, nombre: 'Pedro Perez', pregunta1:'Herencia',
+      pregunta2: 'If and Switch',
+      pregunta3: 'Arreglos y listas',
+      pregunta4: 'Bucles',
+      pregunta5: 'Código' },
 
   ];
-  constructor(private router: Router) {}
+  constructor(public dialog: MatDialog) {}
 
   verInfoEvaluacion(evaluacion: any) {
-    // Lógica para preparar datos, si es necesario
-    this.router.navigate(['/admin/ver-info-evaluacion']);
+    const dialogRef = this.dialog.open(VerInfoEvaluacionComponent, {
+      width: '400px', // Puedes ajustar el ancho según tus necesidades
+      data: evaluacion
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal se cerró', result);
+    });
   }
 
 
@@ -29,5 +52,13 @@ export class RegistroEvaluacionComponent {
   verInfo(evaluacion: any) {
     this.mostrarInfo = true;
     this.evaluacionSeleccionada = evaluacion;
+  }
+
+  aceptarSolicitud(){
+    alert("Solicitud Aceptada");
+  }
+
+  rechazarSolicitud(){
+    alert("Solicitud Rechazada");
   }
 }

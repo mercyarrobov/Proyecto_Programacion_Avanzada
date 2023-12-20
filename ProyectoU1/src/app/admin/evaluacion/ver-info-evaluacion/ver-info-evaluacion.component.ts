@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-ver-info-evaluacion',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./ver-info-evaluacion.component.scss']
 })
 export class VerInfoEvaluacionComponent {
+  verInfoFormulario(arg0: any) {
+    throw new Error('Method not implemented.');
+  }
+  constructor(
+    public dialogRef: MatDialogRef<VerInfoEvaluacionComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
