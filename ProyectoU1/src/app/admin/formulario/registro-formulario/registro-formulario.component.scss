@@ -1,6 +1,14 @@
 
-/* Agrega este estilo en tu archivo de estilos */
 .btn-margin {
-    margin-right: 2px; /* Puedes ajustar este valor según sea necesario */
+    margin-right: 2px;
+  }
+  .btn-sm {
+    padding: 5px 10px; 
+  }
+  .btn-sm {
+    margin-right: 5px; 
+  }
+  .btn-sm:last-child {
+    margin-right: 0;
   }
   

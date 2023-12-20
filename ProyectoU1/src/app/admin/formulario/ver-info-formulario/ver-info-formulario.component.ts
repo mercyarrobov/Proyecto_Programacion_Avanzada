@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'; // Asegúrate de importar MatDialogRef y MAT_DIALOG_DATA
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'; 
 
 @Component({
   selector: 'app-ver-info-formulario',

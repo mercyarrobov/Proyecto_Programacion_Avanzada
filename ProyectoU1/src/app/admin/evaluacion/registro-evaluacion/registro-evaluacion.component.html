@@ -1,7 +1,7 @@
 <div class="container">
   <div class="table-and-details-container">
-    <div class="table-container"> <!-- Centra la tabla con mx-auto -->
-      <table class="table table-bordered table-striped"> <!-- Agrega bordes a la tabla -->
+    <div class="table-container">
+      <table class="table table-bordered table-striped">
         <thead class="thead-dark">
           <tr class="table-warning">
             <th>#</th>
@@ -13,7 +13,7 @@
           <tr *ngFor="let evaluacion of evaluaciones">
             <td>{{ evaluacion.id }}</td>
             <td>{{ evaluacion.nombre }}</td>
-            <td class="text-center"> <!-- Centra el contenido a la derecha -->
+            <td class="text-center">
               <button class="btn btn-success btn-margin" (click)="aceptarSolicitud()">Aceptar</button>
               <button class="btn btn-danger btn-margin" (click)="rechazarSolicitud()">Rechazar</button>
               <button class="btn btn-info btn-margin" (click)="verInfoEvaluacion(evaluacion)">Ver</button>

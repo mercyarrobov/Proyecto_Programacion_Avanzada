@@ -13,8 +13,8 @@ const routes: Routes = [
     children: [
       { path: 'formulario', component: RegistroFormularioComponent },
       { path: 'evaluacion', component: RegistroEvaluacionComponent },
-      { path: 'ver-info-formulario', component: VerInfoFormularioComponent }, // Ruta para ver-info-formulario
-      { path: 'ver-info-evaluacion', component: VerInfoEvaluacionComponent }, // Ruta para ver-info-evaluac
+      { path: 'ver-info-formulario', component: VerInfoFormularioComponent },
+      { path: 'ver-info-evaluacion', component: VerInfoEvaluacionComponent }, 
       { path: '', redirectTo: 'formulario', pathMatch: 'full' },
     ],
   },

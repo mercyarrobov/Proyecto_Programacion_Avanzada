@@ -1,13 +1,18 @@
-@import '~bootstrap/dist/css/bootstrap.min.css';
 
-.modal-container {
-    max-width: 600px;
-    padding: 20px;
-    text-align: center;
-    border: 2px solid #009688;
-    border-radius: 10px;
-    margin: 0 auto;
-    background-color: #fff; /* Cambia el color de fondo según tus preferencias */
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); /* Añade una sombra */
-  }
-  
+.modal-container.modal-lg .modal-content-wide {
+  width: 100%;
+  margin: 10px;
+  padding: 10px;
+}
+.custom-modal-width {
+  width: 800px; 
+  margin: 10px;
+}
+.modal-content-wide .btn {
+  display: block; 
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+

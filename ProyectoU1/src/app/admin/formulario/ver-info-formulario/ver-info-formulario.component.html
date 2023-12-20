@@ -1,51 +1,50 @@
-<div class="container modal-container d-flex flex-column align-items-center justify-content-center">
-  <h2 class="text-primary">Detalles del Formulario</h2>
+<div class="container modal-container modal-lg">
+  <div class="modal-content-wide">
+    <h2 class="text-primary">Detalles del Formulario</h2>
 
-  <div class="row">
-    <!-- Sección: Información Personal -->
-    <div class="col-md-6">
-      <div class="section-container border-bottom pb-3">
-        <h3 class="text-info">Información Personal:</h3>
-        <p><strong>ID:</strong> {{ data.id }}</p>
-        <p><strong>Nombre:</strong> {{ data.nombre }}</p>
-        <p><strong>Fecha de Nacimiento:</strong> {{ data.fechaNacimiento }}</p>
-        <p><strong>Género:</strong> {{ data.genero }}</p>
-        <p><strong>Email:</strong> {{ data.email }}</p>
-        <p><strong>Teléfono:</strong> {{ data.telefono }}</p>
-        <p><strong>País de Residencia:</strong> {{ data.paisResidencia }}</p>
-        <p><strong>Dirección:</strong> {{ data.direccion }}</p>
+    <div class="row">
+      <!-- Sección: Información Personal -->
+      <div class="col-md-6">
+        <div class="section-container border-bottom pb-3">
+          <h3 class="text-info">Información Personal:</h3>
+          <p><strong>#:</strong> {{ data.id }}</p>
+          <p><strong>Nombre:</strong> {{ data.nombre }}</p>
+          <p><strong>Fecha de Nacimiento:</strong> {{ data.fechaNacimiento }}</p>
+          <p><strong>Género:</strong> {{ data.genero }}</p>
+          <p><strong>Email:</strong> {{ data.email }}</p>
+          <p><strong>Teléfono:</strong> {{ data.telefono }}</p>
+          <p><strong>País de Residencia:</strong> {{ data.paisResidencia }}</p>
+          <p><strong>Dirección:</strong> {{ data.direccion }}</p>
+        </div>
+      </div>
+
+      <!-- Sección: Información Académica -->
+      <div class="col-md-6">
+        <div class="section-container border-bottom pb-3">
+          <h3 class="text-success">Información Académica:</h3>
+          <p><strong>Nivel educativo actual:</strong> {{ data.nivelEducativo }}</p>
+          <p><strong>Carrera o programa de estudios:</strong> {{ data.carrera }}</p>
+        </div>
+              <!-- Sección: Información Financiera -->
+        <div class="section-container border-bottom pb-3">
+          <h3 class="text-danger">Información Financiera:</h3>
+          <p><strong>Ingresos del hogar (mensual):</strong> {{ data.ingresosHogar }}</p>
+          <p><strong>Otras fuentes de financiamiento:</strong> {{ data.fuentesFinanciamiento }}</p>
+        </div>
       </div>
     </div>
 
-    <!-- Sección: Información Académica -->
-    <div class="col-md-6">
-      <div class="section-container border-bottom pb-3">
-        <h3 class="text-success">Información Académica:</h3>
-        <p><strong>Nivel educativo actual:</strong> {{ data.nivelEducativo }}</p>
-        <p><strong>Carrera o programa de estudios:</strong> {{ data.carrera }}</p>
+    <div class="row">
+      <!-- Sección: Objetivos -->
+      <div class="col">
+        <div class="section-container">
+          <h3 class="text-warning">Objetivos:</h3>
+          <p><strong>Cómo la beca contribuirá a alcanzar esos objetivos?</strong><br><br> {{ data.objetivos }}</p>
+        </div>
       </div>
     </div>
+
+    <!-- Botón de Cerrar -->
+    <button class="btn btn-primary mt-3 centered-btn" (click)="onNoClick()">Cerrar</button>
   </div>
-
-  <div class="row">
-    <!-- Sección: Información Financiera -->
-    <div class="col-md-6">
-      <div class="section-container border-bottom pb-3">
-        <h3 class="text-danger">Información Financiera:</h3>
-        <p><strong>Ingresos del hogar (mensual):</strong> {{ data.ingresosHogar }}</p>
-        <p><strong>Otras fuentes de financiamiento:</strong> {{ data.fuentesFinanciamiento }}</p>
-      </div>
-    </div>
-
-    <!-- Sección: Objetivos -->
-    <div class="col-md-6">
-      <div class="section-container">
-        <h3 class="text-warning">Objetivos:</h3>
-        <p><strong>Cómo la beca contribuirá a alcanzar esos objetivos?</strong> {{ data.objetivos }}</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Botón de Cerrar -->
-  <button class="btn btn-primary mt-3" (click)="onNoClick()">Cerrar</button>
 </div>

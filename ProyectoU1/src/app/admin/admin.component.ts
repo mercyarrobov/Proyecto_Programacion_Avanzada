@@ -14,7 +14,6 @@ export class AdminComponent {
   }  
   enlaceActivo: string = ''; // Inicializa la variable que representa el enlace activo
 
-  // Método para cambiar el enlace activo
   cambiarEnlaceActivo(enlace: string) {
     this.enlaceActivo = enlace;
   }

@@ -78,11 +78,11 @@ export class RegistroFormularioComponent {
   ];
   
   
-  constructor(public dialog: MatDialog) {} // Asegúrate de inyectar MatDialog
+  constructor(public dialog: MatDialog) {} 
 
   verInfoFormulario(formulario: any) {
     const dialogRef = this.dialog.open(VerInfoFormularioComponent, {
-      width: '400px', // Puedes ajustar el ancho según tus necesidades
+      width: '800px', // Ajusta el ancho según tus necesidades
       data: formulario
     });
 

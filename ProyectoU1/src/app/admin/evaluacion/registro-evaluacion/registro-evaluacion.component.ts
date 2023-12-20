@@ -36,7 +36,7 @@ export class RegistroEvaluacionComponent {
 
   verInfoEvaluacion(evaluacion: any) {
     const dialogRef = this.dialog.open(VerInfoEvaluacionComponent, {
-      width: '400px', // Puedes ajustar el ancho según tus necesidades
+      width: '450px', // Ajuste el ancho según tus necesidades
       data: evaluacion
     });
 
