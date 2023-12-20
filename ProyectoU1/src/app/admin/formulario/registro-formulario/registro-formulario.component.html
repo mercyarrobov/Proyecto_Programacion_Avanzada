@@ -1,10 +1,16 @@
 <div class="table-and-details-container">
   <div class="table-container">
-    <table>
-      <thead>
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
         <tr>
           <th>#</th>
-          <th>Nombre</th>
+          <th>Nombres</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Género</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>País de Residencia</th>
+          <th>Dirección</th>
           <th>Acciones</th>
         </tr>
       </thead>
@@ -12,12 +18,17 @@
         <tr *ngFor="let evaluacion of evaluaciones">
           <td>{{ evaluacion.id }}</td>
           <td>{{ evaluacion.nombre }}</td>
+          <td>{{ evaluacion.fechaNacimiento }}</td>
+          <td>{{ evaluacion.genero }}</td>
+          <td>{{ evaluacion.email }}</td>
+          <td>{{ evaluacion.telefono }}</td>
+          <td>{{ evaluacion.paisResidencia }}</td>
+          <td>{{ evaluacion.direccion }}</td>
+
           <td>
-            <button class="btn btn-success btn-margin" (click)="aceptarSolicitud()">Aceptar</button>
-<button class="btn btn-danger btn-margin" (click)="rechazarSolicitud()">Rechazar</button>
-<button class="btn btn-info btn-margin" (click)="verInfoFormulario(evaluacion)">Ver Info Formulario</button>
-
-
+            <button class="btn btn-success btn-sm" (click)="aceptarSolicitud()">Aceptar</button>
+            <button class="btn btn-danger btn-sm" (click)="rechazarSolicitud()">Rechazar</button>
+            <button class="btn btn-info btn-sm" (click)="verInfoFormulario(evaluacion)">Ver Info Formulario</button>
           </td>
         </tr>
       </tbody>
@@ -28,8 +39,18 @@
     <h3>Datos del usuario seleccionado</h3>
     <p>ID: {{ formularioSeleccionada?.id }}</p>
     <p>Nombre: {{ formularioSeleccionada?.nombre }}</p>
+    <p>Fecha de Nacimiento: {{ formularioSeleccionada?.fechaNacimiento }}</p>
+    <p>Género: {{ formularioSeleccionada?.genero }}</p>
     <p>Correo: {{ formularioSeleccionada?.email }}</p>
-    <p>Telefono: {{ formularioSeleccionada?.telefono }}</p>
+    <p>Teléfono: {{ formularioSeleccionada?.telefono }}</p>
     <p>Fecha: {{ formularioSeleccionada?.fecha }}</p>
+    <p>País: {{ formularioSeleccionada?.pais }}</p>
+    <p>Dirección: {{ formularioSeleccionada?.direccion }}</p>
+    <p>Nivel Educativo: {{formularioSeleccionada?.nivelEducativo}}</p>
+    <p>Carrera: {{formularioSeleccionada?.carrera}}</p>
+    <p>Universidad: {{formularioSeleccionada?.universidad}}</p>
+    <p>Ingresos del Hogar: {{formularioSeleccionada?.ingresosHogar}}</p>
+    <p>Fuentes Financiamiento {{formularioSeleccionada?.fuentesFinanciamiento}}</p>
+    <p>Objetivos: {{formularioSeleccionada?.objetivos}}</p>
   </div>
 </div>
