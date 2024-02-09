@@ -1,0 +1,3 @@
+###GET USUARIOS
+GET http:localhost:8383/usuarios
+

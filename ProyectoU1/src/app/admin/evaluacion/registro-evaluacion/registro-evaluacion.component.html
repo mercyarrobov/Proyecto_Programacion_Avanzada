@@ -1,35 +1,16 @@
-<div class="container">
-  <div class="table-and-details-container">
-    <div class="table-container">
-      <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-          <tr class="table-warning">
-            <th>#</th>
-            <th>Nombre</th>
-            <th class="text-center">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let evaluacion of evaluaciones">
-            <td>{{ evaluacion.id }}</td>
-            <td>{{ evaluacion.nombre }}</td>
-            <td class="text-center">
-              <button class="btn btn-success btn-margin" (click)="aceptarSolicitud()">Aceptar</button>
-              <button class="btn btn-danger btn-margin" (click)="rechazarSolicitud()">Rechazar</button>
-              <button class="btn btn-info btn-margin" (click)="verInfoEvaluacion(evaluacion)">Ver</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div *ngIf="mostrarInfo" class="details-container">
-      <h3>Detalles de Evaluación Seleccionada</h3>
-      <p>ID: {{ evaluacionSeleccionada?.id }}</p>
-      <p>Nombre: {{ evaluacionSeleccionada?.nombre }}</p>
-      <p>Pregunta1: {{ evaluacionSeleccionada?.pregunta1 }}</p>
-      <p>Pregunta2: {{ evaluacionSeleccionada?.pregunta2 }}</p>
-      <p>Pregunta3: {{ evaluacionSeleccionada?.pregunta3 }}</p>
-    </div>
-  </div>
+<div *ngIf="evaluaciones.length > 0; else noSolicitudes">
+  <h2>Listado de solicitudes:</h2>
+  <ul>
+    <li *ngFor="let solicitud of evaluaciones">
+      <!-- Aquí puedes mostrar los detalles de cada solicitud -->
+      <p>Nombre: {{ solicitud.data.nombre }}</p>
+      <p>Apellido: {{ solicitud.data.apellido }}</p>
+      <p>Edad: {{ solicitud.data.edad }}</p>
+      <!-- Agrega aquí más detalles según la estructura de tus datos -->
+    </li>
+  </ul>
 </div>
+
+<ng-template #noSolicitudes>
+  <p>No hay solicitudes disponibles.</p>
+</ng-template>

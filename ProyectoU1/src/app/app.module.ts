@@ -9,6 +9,7 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent
@@ -16,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     BrowserModule,
     RouterModule,
+    HttpClientModule,
     AppRoutingModule,
     AdminModule,
     UsuarioModule,

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sistema-solicitudbeca",
+  "private_key_id": "fd61837fddb9fec1d1c8aea3f5baffba44b73d1e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDC1UwwdAKMBCX0\npq14of+9xzxs8QuO6zTeS0QlbIMCnGfC3BWXmSU1Mpt6hKpYiakEAPHdD+ryn9fI\nqpRg7mNH7WHYI8T9Q0zIOI4NuA+QEik8+ACClYJoTkwDhRqJxjYdKdXaE6Sh86Li\nWaN/L9nDTcS5uzlEPJzX3Qw9LGYFL2aB0YIPmHKK5num0xCY1LACICUh5tcrLqaS\n3bin9o2LQfLSFdFrPrtUQEbTd556o0Yz1S7l6pBR40MQa7227oCalt93CdzIhq3Y\nvzAGGGXjkv4TweKt7EKwWUUYWm4MVKsS0L4hzb6EHh8IwJpjeg/ClTL/6CRm2c5s\nZ/Vcuv8TAgMBAAECggEAJ1ZJe77whLSRtUOx4plSuU5wtM42NzTmB7vKloPCL9TE\nXmNxOJqDGKqPGb2PZzDkHxrRuoBsP3BmcO1/59I52VvkVW9jZn8gEYzZoYt4GO6R\nxO2NrM/i9IxabJuDMC4E3v6DXvR4WPqH+IuApz1SCky5W4ahmVVjlXHb9r3wGzuM\nGpee8NqQcTh1S3k6w2r2TpGCCJ/oE+Y6kowQU01/y6hX13sOgkq2+SpOOz5QOqKW\n1bYlgZYY1XzZWs6ZcHul3IyoY8NiJqhojk3D1aIvALft6kOv0LvF32ptTyxKg2Sg\nMDMD/EhPwgxIvx3fVssjypwEIlBI1LbFqqFFgFPoAQKBgQD31ggsMmX+ijGyRtCn\nVzU+XcqsQmW3OwXP1GekUwv9FqCGZHTegSyC207O6v7SbLN0GoFoYdfa0LLrGG4B\n+GbhMLqJRMLy/9AV3wrWOAyFhUJmbUsd4GeOAoNwCQtyd5ITQADmp7rL7EVlzQBi\nEaXUjEkdvY62zyyWyHA7pnmbwQKBgQDJQEy1+JA49bMc4M/VWuU287zZ4GVAXhVd\n2UORF/n7YjWhrLirJkFnI8qhlyBaRofIV5sQqK9zWIcKbrSYyFZH9goOD/+aCOVZ\n713xurzZz8lYJkc2UrYbO+oEPFFFkf2l+DSsxa0ucihhGZJvo6hhLQOsCynZ1tVC\nI15+jnNf0wKBgQCvAX5H51bKhT9Oil7wq843OffR6Bj3aEBUX8LH8LS4hO/Ztroo\nHMMXrFFcH+jNImEeDVFwKhdItrKA/IFB9ux+++/c2qdm/Gkt6JA4cN+2sUEQHwE6\nGapGR1QVGu3waKrH2RxJxAtN0Iu4tSgeGCQnkOBYlfBe+rCb0PIfzRB2gQKBgEfF\nUpYiyuxFU1cdJYFlJRFv4w2gZPuLkfsiHGKGNnRcFdxOiJ0gy3pI3V67UqJfPNVJ\nyNcsEUYFcENcL7O83mhTakqRkgoQ2ho0r0Ah5G+ZFqkFHahV3vPfbhmMmT9CTT7/\nQWnMJXLG63eVcw+1QbtGHmUgphA1+V/Y1T409xhZAoGBANv0XrS9+eSTZRbUZvfj\nwlKlnZMPsG/OWmYv7sg2onML/JT5eCxG/4L+pcrMAlWDV9b4dPsoCdmDN534iemU\n/lTBPuGATsPAjSRLSRoM8wJhAmF0XL54koWhe8384UCBDg267r+sC8XxHglR1hxo\neH7YPHbbSbbP2UE05S+FsMeV\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-iu9fu@sistema-solicitudbeca.iam.gserviceaccount.com",
+  "client_id": "101016059105002324969",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-iu9fu%40sistema-solicitudbeca.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

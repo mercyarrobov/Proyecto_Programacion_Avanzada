@@ -1,110 +1,81 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'; 
 import { VerInfoFormularioComponent } from '../ver-info-formulario/ver-info-formulario.component';
+import { SolicitudesService } from 'src/app/solicitudes.service';
+import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-registro-formulario',
   templateUrl: './registro-formulario.component.html',
   styleUrls: ['./registro-formulario.component.scss']
 })
-export class RegistroFormularioComponent {
-  evaluaciones: any[] = [
-    {
-      id: 1,
-      nombre: 'Julia Mora',
-      email: 'myarro@escape.edu.ec',
-      telefono: '0999999999',
-      fecha: '2021-05-01',
-      fechaNacimiento: '1990-01-15',
-      genero: 'Femenino',
-      paisResidencia: 'Ecuador',
-      direccion: 'Calle Principal 123',
-      nivelEducativo: 'Pregrado',
-      carrera: 'Ingeniería Informática',
-      ingresosHogar: 2000, 
-      fuentesFinanciamiento: 'Beca',
-      objetivos: 'Estudiar y graduarse en Ingeniería Informática.'
-    },
-    {
-      id: 2,
-      nombre: 'Juan Perez',
-      email: 'juan@gmail.com',
-      telefono: '0999999999',
-      fecha: '2021-05-01',
-      fechaNacimiento: '1985-08-22',
-      genero: 'Masculino',
-      paisResidencia: 'México',
-      direccion: 'Avenida Central 456',
-      nivelEducativo: 'Pregrado',
-      carrera: 'Ingeniería Informática',
-      ingresosHogar: 3000, 
-      fuentesFinanciamiento: 'Beca',
-      objetivos: 'Estudiar y graduarse en Ingeniería Informática.'
+export class RegistroFormularioComponent implements OnInit{
   
-    },
-    {
-      id: 3,
-      nombre: 'Maria Perez',
-      email: 'maria@gmail.com',
-      telefono: '0999999999',
-      fecha: '2021-05-01',
-      fechaNacimiento: '1992-04-10',
-      genero: 'Femenino',
-      paisResidencia: 'Colombia',
-      direccion: 'Plaza Principal 789',
-      nivelEducativo: 'Pregrado',
-      carrera: 'Ingeniería Informática',
-      ingresosHogar: 2500, 
-      fuentesFinanciamiento: 'Beca',
-      objetivos: 'Estudiar y graduarse en Ingeniería Informática.'
-  
-    },
-    {
-      id: 4,
-      nombre: 'Pedro Perez',
-      email: 'pedro@gmail.com',
-      telefono: '0999999999',
-      fecha: '2021-05-01',
-      fechaNacimiento: '1988-11-30',
-      genero: 'Masculino',
-      paisResidencia: 'Perú',
-      direccion: 'Calle Secundaria 321',
-      nivelEducativo: 'Pregrado',
-      carrera: 'Desarrollo de Software',
-      ingresosHogar: 4000, 
-      fuentesFinanciamiento: 'Beca',
-      objetivos: 'Estudiar y graduarse en Desarrollo de Software.'
-    }
-  ];
-  
-  
-  constructor(public dialog: MatDialog) {} 
+  ngOnInit(): void {
+    this.cargarDatos();
+  }
 
-  verInfoFormulario(formulario: any) {
-    const dialogRef = this.dialog.open(VerInfoFormularioComponent, {
-      width: '800px', // Ajusta el ancho según tus necesidades
-      data: formulario
-    });
+  solicitudes: any = [];
 
-    dialogRef.afterClosed().subscribe((result: any) => {
-      console.log('El modal se cerró', result);
+  constructor(public solicitudesService: SolicitudesService, public dialog: MatDialog) { }
+
+ cargarDatos() {
+    this.solicitudesService.obtenerSolicitudes().subscribe(res => {
+      this.solicitudes = res;
     });
   }
 
-  mostrarInfo: boolean = false;
-  formularioSeleccionada: any;
-
-  verInfo(formulario: any) {
-    this.mostrarInfo = true;
-    this.formularioSeleccionada = formulario;
+  aceptarSolicitud(id: string, email: string) {
+    Swal.fire({
+      title: '¿Estás seguro de aceptar esta solicitud?',
+      text: 'Una vez aceptada, la solicitud no se podrá revertir.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, aceptar',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario hace clic en "Aceptar"
+        this.solicitudesService.enviarCorreoF1Aceptado(id, email).subscribe(
+          (res: any) => {
+            Swal.fire('¡Solicitud aceptada!', 'La solicitud ha sido aceptada correctamente.', 'success');
+            // Puedes realizar otras acciones aquí después de aceptar la solicitud
+          },
+          (error) => {
+            console.error('Error al enviar correo de aceptación:', error);
+          }
+        );
+      }
+    });
   }
 
-  aceptarSolicitud(){
-    alert("Solicitud Aceptada");
+  rechazarSolicitud(id: string, email: string) {
+    Swal.fire({
+      title: '¿Estás seguro de rechazar esta solicitud?',
+      text: 'Una vez rechazada, la solicitud no se podrá revertir.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Sí, rechazar',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Si el usuario hace clic en "Rechazar"
+        this.solicitudesService.enviarCorreoF1Rechazado(id, email).subscribe(
+          (res: any) => {
+            Swal.fire('¡Solicitud rechazada!', 'La solicitud ha sido rechazada correctamente.', 'success');
+            // Puedes realizar otras acciones aquí después de rechazar la solicitud
+          },
+          (error) => {
+            console.error('Error al enviar correo de rechazo:', error);
+          }
+        );
+      }
+    });
   }
-
-  rechazarSolicitud(){
-    alert("Solicitud Rechazada");
-  }
-
 }

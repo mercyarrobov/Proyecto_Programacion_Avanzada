@@ -1,56 +1,34 @@
-<div class="table-and-details-container">
-  <div class="table-container">
-    <table class="table table-bordered table-striped">
-      <thead class="thead-dark">
-        <tr>
-          <th>#</th>
-          <th>Nombres</th>
-          <th>Fecha de Nacimiento</th>
-          <th>Género</th>
-          <th>Email</th>
-          <th>Teléfono</th>
-          <th>País de Residencia</th>
-          <th>Dirección</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let evaluacion of evaluaciones">
-          <td>{{ evaluacion.id }}</td>
-          <td>{{ evaluacion.nombre }}</td>
-          <td>{{ evaluacion.fechaNacimiento }}</td>
-          <td>{{ evaluacion.genero }}</td>
-          <td>{{ evaluacion.email }}</td>
-          <td>{{ evaluacion.telefono }}</td>
-          <td>{{ evaluacion.paisResidencia }}</td>
-          <td>{{ evaluacion.direccion }}</td>
-
-          <td>
-            <button class="btn btn-success btn-sm mx-1" (click)="aceptarSolicitud()">Aceptar</button>
-            <button class="btn btn-danger btn-sm mx-1" (click)="rechazarSolicitud()">Rechazar</button>
-            <button class="btn btn-info btn-sm" (click)="verInfoFormulario(evaluacion)">Ver Info</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div *ngIf="mostrarInfo" class="details-container">
-    <h3>Datos del usuario seleccionado</h3>
-    <p>ID: {{ formularioSeleccionada?.id }}</p>
-    <p>Nombre: {{ formularioSeleccionada?.nombre }}</p>
-    <p>Fecha de Nacimiento: {{ formularioSeleccionada?.fechaNacimiento }}</p>
-    <p>Género: {{ formularioSeleccionada?.genero }}</p>
-    <p>Correo: {{ formularioSeleccionada?.email }}</p>
-    <p>Teléfono: {{ formularioSeleccionada?.telefono }}</p>
-    <p>Fecha: {{ formularioSeleccionada?.fecha }}</p>
-    <p>País: {{ formularioSeleccionada?.pais }}</p>
-    <p>Dirección: {{ formularioSeleccionada?.direccion }}</p>
-    <p>Nivel Educativo: {{formularioSeleccionada?.nivelEducativo}}</p>
-    <p>Carrera: {{formularioSeleccionada?.carrera}}</p>
-    <p>Universidad: {{formularioSeleccionada?.universidad}}</p>
-    <p>Ingresos del Hogar: {{formularioSeleccionada?.ingresosHogar}}</p>
-    <p>Fuentes Financiamiento {{formularioSeleccionada?.fuentesFinanciamiento}}</p>
-    <p>Objetivos: {{formularioSeleccionada?.objetivos}}</p>
-  </div>
+<div *ngIf="solicitudes.length > 0; else noSolicitudes">
+  <h2>Listado de solicitudes</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre y Apellido</th>
+        <th>Cédula</th>
+        <th>Dirección</th>
+        <th>Teléfono</th>
+        <th>Correo</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let solicitud of solicitudes">
+        <td>{{ solicitud.data.name }}</td>
+        <td>{{ solicitud.data.cedula }}</td>
+        <td>{{ solicitud.data.direccion }}</td>
+        <td>{{ solicitud.data.telefono }}</td>
+        <td>{{ solicitud.data.email }}</td>
+        <td>{{ solicitud.data.fecha_nacimiento }}</td>
+        <td>
+          <button type="button" class="btn btn-success" (click)="aceptarSolicitud(solicitud.id, solicitud.data.email)">Aceptar</button>
+          <button type="button" class="btn btn-danger" (click)="rechazarSolicitud(solicitud.id, solicitud.data.email)">Rechazar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<ng-template #noSolicitudes>
+  <p>No hay solicitudes disponibles.</p>
+</ng-template>
