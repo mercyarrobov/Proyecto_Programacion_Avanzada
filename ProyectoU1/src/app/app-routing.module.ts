@@ -6,7 +6,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 const routes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'usuario', component: UsuarioComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'admin' },
+  { path: '', pathMatch: 'full', redirectTo: 'usuario/publicidadUser' },
 ];
 
 @NgModule({
