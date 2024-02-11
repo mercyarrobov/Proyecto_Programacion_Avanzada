@@ -147,7 +147,7 @@ const correoHTMLF2A =  `
         <p class="text1">¡Hola [Nombre del solicitante]!</p>
         <p class="text2">¡Estamos emocionados de compartir contigo esta excelente noticia!✨</p>
         <a href=""><img src="https://i.ibb.co/vVjR3nY/unnamed-1.gif" alt="unnamed-1" class="sticker"></a>        
-        <p>¡Enhorabuena! Queremos informarte que has superado con éxito la <strong>segunda fase de evaluación</strong> para la beca del
+        <p>¡Felicitaciones! Queremos informarte que has superado con éxito la <strong>segunda fase de evaluación</strong> para la beca del
             <strong>curso de programación avanzada💻</strong>. Tu esfuerzo y dedicación han sido recompensados, ¡has sido <strong>aceptado</strong> en nuestro programa!🎉</p>
 
         <p>Te animamos a seguir destacando y participando activamente en el curso. Tu participación es fundamental para aprovechar al máximo esta experiencia.</p>

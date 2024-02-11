@@ -7,13 +7,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./ver-info-formulario.component.scss']
 })
 export class VerInfoFormularioComponent {
-verInfoFormulario(arg0: any) {
-throw new Error('Method not implemented.');
-}
+  data: any;
+
   constructor(
     public dialogRef: MatDialogRef<VerInfoFormularioComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+    @Inject(MAT_DIALOG_DATA) public initialData: any
+  ) {
+    this.data = initialData || {}; // Establecer data como un objeto vacío si no se proporciona
+    console.log("Datos recibidos en el diálogo:", this.data);
+  }
 
   onNoClick(): void {
     this.dialogRef.close();

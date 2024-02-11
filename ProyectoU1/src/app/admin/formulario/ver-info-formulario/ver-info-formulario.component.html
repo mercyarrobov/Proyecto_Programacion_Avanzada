@@ -7,40 +7,36 @@
       <div class="col-md-6">
         <div class="section-container border-bottom pb-3">
           <h3 class="text-info">Información Personal:</h3>
-          <p><strong>#:</strong> {{ data.id }}</p>
-          <p><strong>Nombre:</strong> {{ data.nombre }}</p>
-          <p><strong>Fecha de Nacimiento:</strong> {{ data.fechaNacimiento }}</p>
+          <p><strong>Cédula:</strong> {{ data.cedula }}</p>
+          <p><strong>Nombre:</strong> {{ data.name }}</p>
+          <p><strong>Fecha de Nacimiento:</strong> {{ data.fecha_nacimiento }}</p>
           <p><strong>Género:</strong> {{ data.genero }}</p>
-          <p><strong>Email:</strong> {{ data.email }}</p>
           <p><strong>Teléfono:</strong> {{ data.telefono }}</p>
-          <p><strong>País de Residencia:</strong> {{ data.paisResidencia }}</p>
+          <p><strong>Email:</strong> {{ data.email }}</p>
           <p><strong>Dirección:</strong> {{ data.direccion }}</p>
+          <p><strong>País de Residencia:</strong> {{ data.paisresidencia }}</p>
+          <!-- Otros campos de información personal -->
         </div>
       </div>
 
       <!-- Sección: Información Académica -->
       <div class="col-md-6">
-        <div class="section-container border-bottom pb-3">
-          <h3 class="text-success">Información Académica:</h3>
-          <p><strong>Nivel educativo actual:</strong> {{ data.nivelEducativo }}</p>
-          <p><strong>Carrera o programa de estudios:</strong> {{ data.carrera }}</p>
-        </div>
-              <!-- Sección: Información Financiera -->
-        <div class="section-container border-bottom pb-3">
-          <h3 class="text-danger">Información Financiera:</h3>
-          <p><strong>Ingresos del hogar (mensual):</strong> {{ data.ingresosHogar }}</p>
-          <p><strong>Otras fuentes de financiamiento:</strong> {{ data.fuentesFinanciamiento }}</p>
-        </div>
+        <h3 class="text-info">Información Académica:</h3>
+        <p><strong>Nivel Educativo:</strong> {{ data.nivelEducativo }}</p>
+        <p><strong>Carrera:</strong> {{ data.carrera }}</p>
       </div>
-    </div>
+            <!-- Sección: Financiera -->
 
-    <div class="row">
+      <div  class="col-md-6">
+        <h3 class="text-info">Información Financier:</h3>
+        <p><strong>Ingresos Familiares:</strong> {{ data.ingresos_familiares }}</p>
+          <p><strong>Gastos Actuales:</strong> {{ data.Gastos_actuales }}</p>
+
+      </div>
       <!-- Sección: Objetivos -->
-      <div class="col">
-        <div class="section-container">
-          <h3 class="text-warning">Objetivos:</h3>
-          <p><strong>Cómo la beca contribuirá a alcanzar esos objetivos?</strong><br><br> {{ data.objetivos }}</p>
-        </div>
+      <div class="col-md-6">
+        <h3 class="text-info">Objetivos:</h3>
+        <p><strong>Objetivos:</strong> {{ data.objetivos }}</p>
       </div>
     </div>
 

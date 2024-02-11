@@ -13,13 +13,13 @@ import Swal from 'sweetalert2';
 })
 export class RegistroFormularioComponent implements OnInit{
   
-  ngOnInit(): void {
-    this.cargarDatos();
-  }
-
   solicitudes: any = [];
 
   constructor(public solicitudesService: SolicitudesService, public dialog: MatDialog) { }
+
+  ngOnInit(): void {
+    this.cargarDatos();
+  }
 
  cargarDatos() {
     this.solicitudesService.obtenerSolicitudes().subscribe(res => {
@@ -78,4 +78,19 @@ export class RegistroFormularioComponent implements OnInit{
       }
     });
   }
+  verInfoFormulario(solicitud: any): void {
+    if (solicitud && Object.keys(solicitud).length !== 0) {
+      console.log("Datos de la solicitud:", solicitud);
+      const dialogRef = this.dialog.open(VerInfoFormularioComponent, {
+        width: '80%',
+        data: solicitud
+      });
+    } else {
+      console.error('Los datos de la solicitud están indefinidos:', solicitud);
+    }
+  }
+  
+  
+  
+  
 }
