@@ -25,7 +25,6 @@
 
                      <!-- Cedula -->
                      <div class="mb-3">
-                       
                         <label for="name" class="form-label">Cedula*:</label>
                         <input class="form-control" placeholder="CEDULA" formControlName="cedula" (blur)="validarCedulaEcuatoriana()">
                         <small *ngIf="form.get('cedula')?.hasError('required') && form.get('cedula')?.touched" class="text-danger">
@@ -39,9 +38,13 @@
                         </small>
                         <small *ngIf="form.get('cedula')?.hasError('cedulaInvalida')" class="text-danger">
                             Cédula inválida
-                          </small>
-                      </div>
+                        </small>
 
+                        <small *ngIf="form.get('cedula')?.hasError('cedulaExistente')" class="text-danger">
+                            Cédula ya registrada
+                        </small>
+
+                    </div>
 
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombres y Apellidos*:</label>
@@ -105,6 +108,11 @@
                     <small *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched"
                         class="text-danger">
                         El formato de correo electrónico es incorrecto
+                    </small>
+
+
+                    <small *ngIf="form.get('email')?.hasError('emailExistente')" class="text-danger">
+                        Email ya registrado
                     </small>
                 </div>
 
@@ -265,7 +273,7 @@
                             Acepto los términos y condiciones*
                         </label>
                         <input type="checkbox" class="form-check-input" formControlName="terminos">
-                        <br> 
+                        <br>
                         <small *ngIf="form.get('terminos')?.hasError('required') && form.touched"
                             class="text-danger">
                             {{ form.get('terminos')?.hasError('required') && form.touched ? 'Debe aceptar los términos y condiciones' : '' }}
@@ -279,8 +287,8 @@
             <div class="col-md-12 mt-3">
                 <div class="contenedor_capcha">
                     <div class="capcha">
-                       
-                       
+
+
 
                         <div class="custom-center-style">
                             <re-captcha (resolved)="resolved($event)"

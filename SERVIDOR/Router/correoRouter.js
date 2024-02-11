@@ -10,6 +10,8 @@ let envio = require('../Controllers/correoControler');
 
 app.post('/envioF1A', envio.envioCorreoF1A);
 app.post('/envioF1R', envio.envioCorreoF1R);
+app.post('/envioF2A', envio.envioCorreoF2A);
+app.post('/envioF2R', envio.envioCorreoF2R);
 
 // Listar todas las solicitudes de usuarios f1
 app.get('/solicitud', async (req, res) => {
@@ -65,19 +67,55 @@ app.get('/evaluacion', async (req, res) => {
 
 
 
-
-
-// Agregar un nuevo documento a la colección de usuarios
+//codigo del servidor
+// Agregar un nuevo documento a la colección de usuarios en firebase Cloud Firestore
 app.post('/usuarios', async (req, res) => {
     try {
         const nuevoUsuario = req.body; 
+
+        // Verificar si la cédula ya existe
+        const cedulaExistente = await db.collection('usuario').where('cedula', '==', nuevoUsuario.cedula).get();
+        if (!cedulaExistente.empty) {
+            return res.status(400).json({ error: "La cédula ya está registrada" });
+        }
+
+        // Verificar si el correo electrónico ya existe
+        const correoExistente = await db.collection('usuario').where('email', '==', nuevoUsuario.email).get();
+        if (!correoExistente.empty) {
+            return res.status(400).json({ error: "El correo electrónico ya está registrado" });
+        }
+
         const respuesta = await db.collection('usuario').add(nuevoUsuario);
         res.status(201).send({ id: respuesta.id }); 
     } catch(error) {
         console.error(error);
-        res.status(500).json({ error: "Error al agregar el nuevo usuario" });
+        res.status(500).json({ error: "Error al registrar solicitud" });
     }
 });
+
+
+// Verificar la existencia de una cédula
+app.get('/verificar-cedula/:cedula', async (req, res) => {
+    try {
+        const cedulaExistente = await db.collection('usuario').where('cedula', '==', req.params.cedula).get();
+        res.json(!cedulaExistente.empty);
+    } catch(error) {
+        console.error(error);
+        res.status(500).json({ error: "Error al verificar la cédula" });
+    }
+});
+
+// Verificar la existencia de un correo electrónico
+app.get('/verificar-email/:email', async (req, res) => {
+    try {
+        const correoExistente = await db.collection('usuario').where('email', '==', req.params.email).get();
+        res.json(!correoExistente.empty);
+    } catch(error) {
+        console.error(error);
+        res.status(500).json({ error: "Error al verificar el correo electrónico" });
+    }
+});
+
 
 
 

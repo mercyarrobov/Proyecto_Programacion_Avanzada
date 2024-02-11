@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UsuarioComponent } from './usuario.component';
 import { FormularioUserComponent } from './formulario-user/formulario-user.component';
 import { EvaluacionUserComponent } from './evaluacion-user/evaluacion-user.component';
+import { PublicidadComponent } from './publicidad/publicidad.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     children: [
       { path: 'formularioUser', component: FormularioUserComponent },
       { path: 'evaluacionUser', component: EvaluacionUserComponent },
+      { path: 'publicidadUser', component: PublicidadComponent },
       { path: '', redirectTo: 'formularioUser', pathMatch: 'full' },
     ],
   },

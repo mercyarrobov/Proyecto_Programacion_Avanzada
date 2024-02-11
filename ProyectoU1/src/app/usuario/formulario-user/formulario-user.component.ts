@@ -1,6 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { SolicitudesService } from 'src/app/solicitudes.service';
+import { map } from 'rxjs/operators';
+import { AsyncValidatorFn} from '@angular/forms';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-formulario-user',
@@ -19,7 +24,7 @@ export class FormularioUserComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private SolicitudesService: SolicitudesService,private http: HttpClient ) {
     this.buildForm();
   }
 
@@ -32,11 +37,21 @@ export class FormularioUserComponent implements OnInit {
   private buildForm() {
     this.form = this.formBuilder.group({
       //validar cedula ecuatoriana
-      cedula: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]),
+      cedula: new FormControl('', {
+        validators: [Validators.required, Validators.minLength(3), Validators.maxLength(10)],
+        asyncValidators: [this.cedulaExistenteValidator()],
+        updateOn: 'blur',
+      }),
+
       name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       fecha_nacimiento: new FormControl('', [Validators.required]),
       genero: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
+
+      email: new FormControl('', {
+        validators: [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)],
+        asyncValidators: [this.emailExistenteValidator()],
+        updateOn: 'blur',
+      }),
       telefono: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]),
       paisresidencia: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       nivelEducativo: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
@@ -54,23 +69,20 @@ export class FormularioUserComponent implements OnInit {
   save(event: Event) {
     event.preventDefault();
 
-
     if (this.form.valid && this.captchaValid) {
       const value = this.form.value;
 
-      console.log(value);
-      //limpiar formulario
-      this.form.reset();
-
-      // Muestra el mensaje de éxito temporalmente
-      this.mostrarMensajeTemporal = true;
-
-      // Después de 3 segundos (3000 milisegundos), oculta el mensaje
-      setTimeout(() => {
+      this.SolicitudesService.agregarUsuario(value).subscribe(res => {
+        console.log('Usuario agregado con éxito', res);
+        this.form.reset();
+        this.mostrarMensajeTemporal = true;
+        setTimeout(() => {
+          this.mostrarMensajeTemporal = false;
+        }, 3000);
+      }, error => {
+        console.error('Error al agregar usuario', error);
         this.mostrarMensajeTemporal = false;
-      }, 3000);
-
-      // Puedes reiniciar el formulario o realizar otras acciones después de guardar
+      });
     } else {
       this.form.markAllAsTouched();
       this.mostrarMensajeTemporal = false;
@@ -112,19 +124,19 @@ export class FormularioUserComponent implements OnInit {
   }
 
 
-  
+
   validarCedulaEcuatoriana(): void {
     let cedula = this.form.get('cedula')?.value;
-  
+
     // Elimina espacios y guiones
     cedula = cedula.replace(/[-\s]/g, '');
-  
+
     // Comprueba que la cédula tenga 10 dígitos
     if (cedula.length !== 10) {
       this.form.get('cedula')?.setErrors({ 'cedulaInvalida': true });
       return;
     }
-  
+
     // Calcula el dígito verificador
     const coeficientes = [2, 1, 2, 1, 2, 1, 2, 1, 2];
     let suma = 0;
@@ -133,23 +145,39 @@ export class FormularioUserComponent implements OnInit {
       const producto = digito * coeficientes[i];
       suma += (producto > 9) ? producto - 9 : producto;
     }
-  
+
     const residuo = suma % 10;
     const digitoVerificador = (residuo === 0) ? 0 : 10 - residuo;
-  
+
     const digitoCorrecto = parseInt(cedula.charAt(9), 10);
-  
+
     if (digitoCorrecto !== digitoVerificador) {
       this.form.get('cedula')?.setErrors({ 'cedulaInvalida': true });
     } else {
       this.form.get('cedula')?.setErrors(null);
     }
   }
-  
 
-  
+  cedulaExistenteValidator(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      const cedula = control.value;
+
+      return this.SolicitudesService.verificarCedulaExistente(cedula).pipe(
+        map((exists) => (exists ? { cedulaExistente: true } : null))
+      );
+    };
+  }
+
+  emailExistenteValidator(): AsyncValidatorFn {
+    return (control: AbstractControl): Observable<ValidationErrors | null> => {
+      const email = control.value;
+
+      return this.SolicitudesService.verificarEmailExistente(email).pipe(
+        map((exists) => (exists ? { emailExistente: true } : null))
+      );
+    };
+  }
+
+
 }
-  
-  
-
 

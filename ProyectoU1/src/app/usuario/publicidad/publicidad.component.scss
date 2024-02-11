@@ -1,0 +1,37 @@
+$primary-color: #007bff;
+$secondary-color: #0056b3;
+
+.ad-container {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 500px;
+  margin: 50px auto;
+  text-align: center;
+
+  h1 {
+    color: $primary-color;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #333;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    background-color: $primary-color;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: $secondary-color;
+    }
+  }
+}

@@ -8,12 +8,14 @@ import { EvaluacionUserComponent } from './evaluacion-user/evaluacion-user.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { PublicidadComponent } from './publicidad/publicidad.component';
 
 @NgModule({
   declarations: [
     UsuarioComponent,
     FormularioUserComponent,
-    EvaluacionUserComponent
+    EvaluacionUserComponent,
+    PublicidadComponent
   ],
   imports: [
     BrowserModule,
