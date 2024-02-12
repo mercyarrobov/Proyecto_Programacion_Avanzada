@@ -157,8 +157,9 @@ const correoHTMLF1A = `
             el siguiente botón para completar la evaluación.⬇️</p>
 
         <div class="boton-evaluacion">
-            <a href="">Rendir Evaluación</a>
+            <a href="http://localhost:4200/usuario/evaluacionUser">Rendir Evaluación</a>
         </div>
+        
 
         <div class="recomendacion">
 

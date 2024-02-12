@@ -20,9 +20,28 @@ const envioCorreoF1A = async (req = request, res = response) => {
         // Obtener el nombre del usuario
         const nombreUsuario = userData.name;
 
-        let config = nodemailer.createTransport({
+        let configGmail = nodemailer.createTransport({
             host: 'smtp.gmail.com',
             port: 587,
+            secure: false,
+            auth: {
+                user: 'devspace871@gmail.com',
+                pass: 'vyqt dmnc xwqf rqey'
+            }
+        });
+        let transporterEspe = nodemailer.createTransport({
+            host: 'smtp.espe.edu.ec', 
+            port: 587,
+            secure: false,
+            auth: {
+                user: 'devspace871@gmail.com',
+                pass: 'vyqt dmnc xwqf rqey'
+            }
+        });
+        let transporterOutlook = nodemailer.createTransport({
+            host: 'smtp.outlook.com', 
+            port: 587,
+            secure: false, 
             auth: {
                 user: 'devspace871@gmail.com',
                 pass: 'vyqt dmnc xwqf rqey'
@@ -40,7 +59,29 @@ const envioCorreoF1A = async (req = request, res = response) => {
             html: correoHTMLPersonalizado
         };
 
-        config.sendMail(opciones, function (error, result) {
+        configGmail.sendMail(opciones, function (error, result) {
+            if (error) return res.json({
+                ok: false,
+                msg: error
+            });
+
+            return res.json({
+                ok: true,
+                mensaje: result
+            });
+        });
+        transporterEspe.sendMail(opciones, function (error, result) {
+            if (error) return res.json({
+                ok: false,
+                msg: error
+            });
+
+            return res.json({
+                ok: true,
+                mensaje: result
+            });
+        });
+        transporterOutlook.sendMail(opciones, function (error, result) {
             if (error) return res.json({
                 ok: false,
                 msg: error
