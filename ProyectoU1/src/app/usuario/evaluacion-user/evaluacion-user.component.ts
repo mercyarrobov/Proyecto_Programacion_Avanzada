@@ -43,6 +43,12 @@ export class EvaluacionUserComponent implements OnInit {
     if (this.form.valid) {
       const value = this.form.value;
 
+      // Agregar el texto completo de las opciones seleccionadas en las preguntas
+      value.question1Text = this.getOptionText(value.questions1);
+      value.question2Text = this.getOptionText(value.questions2);
+      value.question3Text = this.getOptionText(value.questions3);
+      value.question4Text = this.getOptionText(value.questions4);
+
       // Verificar si el correo electrónico ya existe
       this.SolicitudesService.verificarEmailExistente(value.email).subscribe(exists => {
         if (!exists) {
@@ -81,6 +87,22 @@ export class EvaluacionUserComponent implements OnInit {
       this.form.markAllAsTouched();
     }
   }
+
+  // Método para obtener el texto de la opción seleccionada en la pregunta
+  getOptionText(option: string): string {
+    switch (option) {
+      case 'a':
+        return 'Concepto que permite a una clase heredar propiedades y comportamientos de otra clase.';
+      case 'b':
+        return 'Expresión booleana que evalúa a verdadero o falso.';
+      case 'c':
+        return 'Estructura de control que permite repetir un bloque de código hasta que se cumple una condición específica.';
+      // Agregar más casos según sea necesario para cada pregunta
+      default:
+        return '';
+    }
+  }
+
 
   emailExistenteValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {

@@ -40,8 +40,15 @@ app.get('/evaluacion', async (req, res) => {
         // Iterar sobre cada evaluación
         for (const doc of evaluacionesSnapshot.docs) {
             const evaluacionData = doc.data();
-            const usuarioDoc = await db.collection('usuario').doc(evaluacionData.userId).get(); 
-            const userData = usuarioDoc.data(); // Datos del usuario
+
+            // Obtener el usuario correspondiente a esta evaluación
+            const usuarioSnapshot = await db.collection('usuario').where('email', '==', evaluacionData.email).get();
+            if (usuarioSnapshot.empty) {
+                console.error('No se encontró el usuario correspondiente para la evaluación con ID:', doc.id);
+                continue; // Continuar con la siguiente evaluación
+            }
+
+            const userData = usuarioSnapshot.docs[0].data(); // Tomar el primer usuario encontrado (debería ser único)
 
             // Agregar los datos del usuario a la evaluación
             evaluaciones.push({
@@ -64,7 +71,6 @@ app.get('/evaluacion', async (req, res) => {
         res.status(500).json({ error: "Error al obtener los datos" });
     }
 });
-
 
 
 //codigo del servidor
