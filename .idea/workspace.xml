@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f368ebd3-58a2-40dc-bfaa-2fe464b221a4" name="Changes" comment="" />
+    <list default="true" id="f368ebd3-58a2-40dc-bfaa-2fe464b221a4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/solicitudes.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/solicitudes.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/usuario/evaluacion-user/evaluacion-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/usuario/evaluacion-user/evaluacion-user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/usuario/evaluacion-user/evaluacion-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/usuario/evaluacion-user/evaluacion-user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SERVIDOR/Router/correoRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/Router/correoRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SERVIDOR/cred.json" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/cred.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SERVIDOR/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/node_modules/.package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SERVIDOR/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SERVIDOR/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/package.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,26 +26,45 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2Zm9LJ61CyQakvE56BYDs8ktJJM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/Kevin/Universidad/8. Octavo Semestre/Programacion Avanzada/Proyecto_Programacion_Avanzada/ProyectoU1",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2023.2\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kevin/Downloads/Programacion Avanzada/ProyectoU1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;D:\\Kevin\\Universidad\\8. Octavo Semestre\\Programacion Avanzada\\Proyecto_Programacion_Avanzada\\ProyectoU1\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/ProyectoU1/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -42,6 +74,11 @@
       <option name="presentableId" value="Default" />
       <updated>1703016329350</updated>
       <workItem from="1703016330369" duration="68000" />
+      <workItem from="1707525426014" duration="2685000" />
+      <workItem from="1707574382919" duration="5275000" />
+      <workItem from="1707656945895" duration="3405000" />
+      <workItem from="1707663481667" duration="9634000" />
+      <workItem from="1707700034827" duration="7941000" />
     </task>
     <servers />
   </component>

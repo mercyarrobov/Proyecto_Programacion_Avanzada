@@ -117,6 +117,43 @@ app.get('/verificar-email/:email', async (req, res) => {
 });
 
 
+// Agregar un nuevo documento a la colección de evaluaciones
+// Agregar un nuevo documento a la colección de evaluaciones
+app.post('/evaluaciones', async (req, res) => {
+    try {
+        const nuevaEvaluacion = req.body; 
+
+        // Verificar si el correo electrónico ya existe en la colección de usuarios
+        const correoExistente = await db.collection('usuario').where('email', '==', nuevaEvaluacion.email).get();
+        if (correoExistente.empty) {
+            return res.status(400).json({ error: "El correo electrónico no está registrado" });
+        }
+
+        // Verificar si el correo electrónico ya existe en la colección de evaluaciones
+        const correoExistenteEvaluacion = await db.collection('evaluacion').where('email', '==', nuevaEvaluacion.email).get();
+        if (!correoExistenteEvaluacion.empty) {
+            return res.status(400).json({ error: "Este usuario ya rindió la evaluación" });
+        }
+
+        const respuesta = await db.collection('evaluacion').add(nuevaEvaluacion);
+        res.status(201).send({ id: respuesta.id }); 
+    } catch(error) {
+        console.error(error);
+        res.status(500).json({ error: "Error al agregar la nueva evaluación" });
+    }
+});
+
+
+// Verificar la existencia de un correo electrónico
+app.get('/verificar-email-evaluacion/:email', async (req, res) => {
+    try {
+        const correoExistenteEvaluacion = await db.collection('evaluacion').where('email', '==', req.params.email).get();
+        res.json(!correoExistenteEvaluacion.empty);
+    } catch(error) {
+        console.error(error);
+        res.status(500).json({ error: "Error al verificar el correo electrónico" });
+    }
+});
 
 
 module.exports = app;
