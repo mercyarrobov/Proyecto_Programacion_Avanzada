@@ -3,21 +3,20 @@
   <div class="modal-body">
     <hr>
     <h2 class="fs-5">¿Qué es la herencia en POO?</h2>
-    <p>Respuesta: {{ data.pregunta1 }}</p>
+    <p>Respuesta: {{ data.data.evaluacion.pregunta1 }}</p>
     <hr>
     <h2 class="fs-5">Diferencia entre if y switch</h2>
-    <p>Respuesta: {{ data.pregunta2 }}</p>
+    <p>Respuesta: {{ data.data.evaluacion.pregunta2 }}</p>
     <hr>
     <h2 class="fs-5">Diferencia entre arreglo y lista</h2>
-    <p>Respuesta: {{ data.pregunta3 }}</p>
+    <p>Respuesta: {{ data.data.evaluacion.pregunta3 }}</p>
     <hr>
     <h2 class="fs-5">¿Qué es un bucle?</h2>
-    <p>Respuesta: {{ data.pregunta4 }}</p>
+    <p>Respuesta: {{ data.data.evaluacion.pregunta4 }}</p>
     <hr>
     <h2 class="fs-5">Ejercicio de Programación Avanzada</h2>
-    <p>Respuesta: {{ data.pregunta5 }}</p>
+    <p>Respuesta: {{ data.data.evaluacion.pregunta5 }}</p>
     <hr>
+    <button class="btn btn-primary mt-3" (click)="onNoClick()">Cerrar</button>
   </div>
-
-  <button class="btn btn-primary mt-3" (click)="onNoClick()">Cerrar</button>
 </div>

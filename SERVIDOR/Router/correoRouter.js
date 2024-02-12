@@ -60,6 +60,13 @@ app.get('/evaluacion', async (req, res) => {
                         correo: userData.email,
                         cedula: userData.cedula,
                         telefono: userData.telefono
+                    },
+                    evaluacion: {
+                        pregunta1: evaluacionData.question1Text,
+                        pregunta2: evaluacionData.question2Text,
+                        pregunta3: evaluacionData.question3Text,
+                        pregunta4: evaluacionData.question4Text,
+                        pregunta5: evaluacionData.ejercicio,
                     }
                 }
             });
@@ -123,7 +130,6 @@ app.get('/verificar-email/:email', async (req, res) => {
 });
 
 
-// Agregar un nuevo documento a la colección de evaluaciones
 // Agregar un nuevo documento a la colección de evaluaciones
 app.post('/evaluaciones', async (req, res) => {
     try {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog'; 
+import { MatDialog } from '@angular/material/dialog';
 import { VerInfoFormularioComponent } from '../ver-info-formulario/ver-info-formulario.component';
 import { SolicitudesService } from 'src/app/solicitudes.service';
 import Swal from 'sweetalert2';
@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./registro-formulario.component.scss']
 })
 export class RegistroFormularioComponent implements OnInit{
-  
+
   solicitudes: any = [];
 
   constructor(public solicitudesService: SolicitudesService, public dialog: MatDialog) { }
@@ -89,8 +89,6 @@ export class RegistroFormularioComponent implements OnInit{
       console.error('Los datos de la solicitud están indefinidos:', solicitud);
     }
   }
-  
-  
-  
-  
+
+
 }

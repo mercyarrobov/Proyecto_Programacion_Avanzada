@@ -32,6 +32,14 @@ export class SolicitudesService {
       return this.http.post(this.url + '/usuarios', nuevoUsuario);
   }
 
+  enviarCorreoF2Aceptado(id: string, email: string) {
+    return this.http.post(`${this.url}/envioF2A`, { id, email });
+  }
+
+  enviarCorreoF2Rechazado(id: string, email: string) {
+    return this.http.post(`${this.url}/envioF2R`, { id, email });
+  }
+
    // Nuevos métodos para la verificación
    verificarCedulaExistente(cedula: string): Observable<boolean> {
     return this.http.get<boolean>(`${this.url}/verificar-cedula/${cedula}`);
