@@ -66,13 +66,13 @@ export class RegistroFormularioComponent implements OnInit{
     }).then((result) => {
       if (result.isConfirmed) {
         // Si el usuario hace clic en "Rechazar"
-        this.solicitudesService.enviarCorreoF1Rechazado(id, email).subscribe(
+        this.solicitudesService.enviarCorreoYEliminar(id, email).subscribe(
           (res: any) => {
-            Swal.fire('¡Solicitud rechazada!', 'La solicitud ha sido rechazada correctamente.', 'success');
-            // Puedes realizar otras acciones aquí después de rechazar la solicitud
+            Swal.fire('¡Solicitud rechazada y eliminada!', 'La solicitud ha sido rechazada y eliminada correctamente.', 'success');            
+            window.location.reload();
           },
           (error) => {
-            console.error('Error al enviar correo de rechazo:', error);
+            console.error('Error al rechazar y eliminar la solicitud:', error);
           }
         );
       }

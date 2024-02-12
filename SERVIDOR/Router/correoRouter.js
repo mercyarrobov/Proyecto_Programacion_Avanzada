@@ -72,6 +72,20 @@ app.get('/evaluacion', async (req, res) => {
     }
 });
 
+//Eliminar una solicitud de usuario
+app.delete('/eliminarSolicitud/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        // Eliminar la solicitud de la base de datos
+        await db.collection('usuario').doc(id).delete();
+        return res.status(200).json({ message: "Solicitud eliminada correctamente" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Error al eliminar la solicitud" });
+    }
+});
+
 
 //codigo del servidor
 // Agregar un nuevo documento a la colección de usuarios en firebase Cloud Firestore
@@ -123,7 +137,6 @@ app.get('/verificar-email/:email', async (req, res) => {
 });
 
 
-// Agregar un nuevo documento a la colección de evaluaciones
 // Agregar un nuevo documento a la colección de evaluaciones
 app.post('/evaluaciones', async (req, res) => {
     try {
