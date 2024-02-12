@@ -178,6 +178,10 @@ export class FormularioUserComponent implements OnInit {
     };
   }
 
+  //Fecha de nacimiento que no exceda la fecha actual
+  getCurrentDate() {
+    return new Date().toISOString().split('T')[0];
+  }
 
 }
 
