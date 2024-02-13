@@ -176,7 +176,7 @@ export class FormularioUserComponent implements OnInit {
       );
     };
   }
-
+//funcion que verifica la existencia del email
   emailExistenteValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const email = control.value;
