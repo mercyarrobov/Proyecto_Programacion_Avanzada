@@ -67,7 +67,7 @@ export class FormularioUserComponent implements OnInit {
     });
   }
 
-  //modificacion de la funcion guardar
+  //modificacion de la funcion guardar para que se envie la informacion del formulario
   save(event: Event) {
     event.preventDefault();
 
