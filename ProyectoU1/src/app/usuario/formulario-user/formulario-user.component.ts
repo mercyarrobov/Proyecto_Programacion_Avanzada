@@ -53,7 +53,9 @@ export class FormularioUserComponent implements OnInit {
         updateOn: 'blur',
       }),
       telefono: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]),
-      paisresidencia: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+      paisresidencia: new FormControl(
+      { value: 'Ecuador', disabled: true },
+  [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       nivelEducativo: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       direccion: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       carrera: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
@@ -72,17 +74,23 @@ export class FormularioUserComponent implements OnInit {
     if (this.form.valid && this.captchaValid) {
       const value = this.form.value;
 
-      this.SolicitudesService.agregarUsuario(value).subscribe(res => {
-        console.log('Usuario agregado con éxito', res);
-        this.form.reset();
-        this.mostrarMensajeTemporal = true;
-        setTimeout(() => {
+      // Set the default value for paisresidencia
+      value.paisresidencia = 'Ecuador';
+
+      this.SolicitudesService.agregarUsuario(value).subscribe(
+        (res) => {
+          console.log('Usuario agregado con éxito', res);
+          this.form.reset();
+          this.mostrarMensajeTemporal = true;
+          setTimeout(() => {
+            this.mostrarMensajeTemporal = false;
+          }, 3000);
+        },
+        (error) => {
+          console.error('Error al agregar usuario', error);
           this.mostrarMensajeTemporal = false;
-        }, 3000);
-      }, error => {
-        console.error('Error al agregar usuario', error);
-        this.mostrarMensajeTemporal = false;
-      });
+        }
+      );
     } else {
       this.form.markAllAsTouched();
       this.mostrarMensajeTemporal = false;
