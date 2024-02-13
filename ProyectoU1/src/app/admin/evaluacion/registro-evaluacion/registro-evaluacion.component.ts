@@ -80,11 +80,14 @@ export class RegistroEvaluacionComponent implements OnInit {
         // Si el usuario hace clic en "Rechazar"
         this.solicitudesService.enviarCorreoF2Rechazado(id, email).subscribe(
           (res: any) => {
-            Swal.fire('¡Solicitud rechazada!', 'La solicitud ha sido rechazada correctamente.', 'success');
-            // Puedes realizar otras acciones aquí después de rechazar la solicitud
+            Swal.fire('¡Solicitud rechazada y eliminada!', 'La solicitud ha sido rechazada y eliminada correctamente.', 'success')
+              .then(() => {
+                // Recargar la página después de cerrar la alerta
+                window.location.reload();
+              });
           },
           (error) => {
-            console.error('Error al enviar correo de rechazo:', error);
+            console.error('Error al rechazar y eliminar la solicitud:', error);
           }
         );
       }

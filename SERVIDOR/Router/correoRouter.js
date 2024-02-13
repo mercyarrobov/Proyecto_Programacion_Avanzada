@@ -49,6 +49,7 @@ app.get('/evaluacion', async (req, res) => {
             }
 
             const userData = usuarioSnapshot.docs[0].data(); // Tomar el primer usuario encontrado (debería ser único)
+            const userId = usuarioSnapshot.docs[0].id; // Obtener el ID del usuario
 
             // Agregar los datos del usuario a la evaluación
             evaluaciones.push({
@@ -56,10 +57,9 @@ app.get('/evaluacion', async (req, res) => {
                 data: {
                     ...evaluacionData,
                     usuario: {
+                        id: userId,
                         nombre: userData.name,
                         correo: userData.email,
-                        cedula: userData.cedula,
-                        telefono: userData.telefono
                     },
                     evaluacion: {
                         pregunta1: evaluacionData.question1Text,
@@ -79,6 +79,7 @@ app.get('/evaluacion', async (req, res) => {
     }
 });
 
+
 //Eliminar una solicitud de usuario
 app.delete('/eliminarSolicitud/:id', async (req, res) => {
     const id = req.params.id;
@@ -92,6 +93,35 @@ app.delete('/eliminarSolicitud/:id', async (req, res) => {
         return res.status(500).json({ error: "Error al eliminar la solicitud" });
     }
 });
+
+//Eliminar evaluacion
+/* app.delete('/eliminarEvaluacion/:id', async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        // Obtener el correo electrónico del usuario
+        const usuarioSnapshot = await db.collection('usuario').doc(id).get();
+        const userData = usuarioSnapshot.data();
+        const userEmail = userData.email;
+
+        // Buscar la evaluación asociada al correo electrónico del usuario
+        const evaluacionSnapshot = await db.collection('evaluacion').where('email', '==', userEmail).get();
+
+        if (!evaluacionSnapshot.empty) {
+            // Si se encuentra una evaluación asociada, eliminarla
+            await db.collection('evaluacion').doc(evaluacionSnapshot.docs[0].id).delete();
+        }
+
+        // Eliminar la solicitud de usuario
+        await db.collection('usuario').doc(id).delete();
+        
+        return res.status(200).json({ message: "Solicitud y evaluación asociada eliminadas correctamente" });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ error: "Error al eliminar la solicitud y la evaluación asociada" });
+    }
+}); */
+
 
 
 //codigo del servidor
