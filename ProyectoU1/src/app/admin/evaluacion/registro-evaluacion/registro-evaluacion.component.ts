@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { VerInfoEvaluacionComponent } from '../ver-info-evaluacion/ver-info-evaluacion.component';
 import { SolicitudesService } from 'src/app/solicitudes.service';
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro-evaluacion',
