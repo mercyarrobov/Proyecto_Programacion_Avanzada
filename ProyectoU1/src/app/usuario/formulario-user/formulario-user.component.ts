@@ -39,6 +39,7 @@ export class FormularioUserComponent implements OnInit {
       //validar cedula ecuatoriana
       cedula: new FormControl('', {
         validators: [Validators.required, Validators.minLength(3), Validators.maxLength(10)],
+        //cedula ecuatoriana existente
         asyncValidators: [this.cedulaExistenteValidator()],
         updateOn: 'blur',
       }),
