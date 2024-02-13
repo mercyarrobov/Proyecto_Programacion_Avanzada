@@ -123,7 +123,6 @@ app.delete('/eliminarSolicitud/:id', async (req, res) => {
 }); */
 
 
-
 //codigo del servidor
 // Agregar un nuevo documento a la colección de usuarios en firebase Cloud Firestore
 app.post('/usuarios', async (req, res) => {
