@@ -14,19 +14,19 @@ import Swal from 'sweetalert2';
 export class RegistroFormularioComponent implements OnInit{
 
   solicitudes: any = [];
-
+  
   constructor(public solicitudesService: SolicitudesService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.cargarDatos();
   }
-
+//Se obtiene el metodo de solicitud desde el servicio
  cargarDatos() {
     this.solicitudesService.obtenerSolicitudes().subscribe(res => {
       this.solicitudes = res;
     });
   }
-
+//Cuadro de dialogo de confirmacion 
   aceptarSolicitud(id: string, email: string) {
     Swal.fire({
       title: '¿Estás seguro de aceptar esta solicitud?',
@@ -52,7 +52,7 @@ export class RegistroFormularioComponent implements OnInit{
       }
     });
   }
-
+  //Cuadro de dialogo de rechazo
   rechazarSolicitud(id: string, email: string) {
     Swal.fire({
       title: '¿Estás seguro de rechazar esta solicitud?',
@@ -78,6 +78,7 @@ export class RegistroFormularioComponent implements OnInit{
       }
     });
   }
+  //Se muestra información del usuario postulante
   verInfoFormulario(solicitud: any): void {
     if (solicitud && Object.keys(solicitud).length !== 0) {
       console.log("Datos de la solicitud:", solicitud);
