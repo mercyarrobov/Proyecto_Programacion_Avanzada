@@ -7,13 +7,7 @@
     <list default="true" id="f368ebd3-58a2-40dc-bfaa-2fe464b221a4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/registro-evaluacion/registro-evaluacion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/registro-evaluacion/registro-evaluacion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/registro-evaluacion/registro-evaluacion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/registro-evaluacion/registro-evaluacion.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/ver-info-evaluacion/ver-info-evaluacion.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/ver-info-evaluacion/ver-info-evaluacion.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/ver-info-evaluacion/ver-info-evaluacion.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/ver-info-evaluacion/ver-info-evaluacion.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/ver-info-evaluacion/ver-info-evaluacion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/ver-info-evaluacion/ver-info-evaluacion.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/admin/formulario/registro-formulario/registro-formulario.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/admin/formulario/registro-formulario/registro-formulario.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/solicitudes.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/solicitudes.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SERVIDOR/Router/correoRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/Router/correoRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SERVIDOR/Controllers/correoControler.js" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/Controllers/correoControler.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +73,7 @@
       <workItem from="1707656945895" duration="3405000" />
       <workItem from="1707663481667" duration="9634000" />
       <workItem from="1707700034827" duration="8548000" />
-      <workItem from="1707746926279" duration="15165000" />
+      <workItem from="1707746926279" duration="19460000" />
     </task>
     <servers />
   </component>

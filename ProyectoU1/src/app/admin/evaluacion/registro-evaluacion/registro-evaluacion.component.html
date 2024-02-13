@@ -11,8 +11,8 @@
     <tr *ngFor="let evaluacion of evaluaciones">
       <td>{{ evaluacion.data.usuario.nombre }}</td>
       <td>
-        <button type="button" class="btn btn-success" (click)="aceptarSolicitud(evaluacion.data.id, evaluacion.data.usuario.correo)">Aceptar</button>
-        <button type="button" class="btn btn-danger" (click)="rechazarSolicitud(evaluacion.data.id, evaluacion.data.usuario.correo)">Rechazar</button>
+        <button type="button" class="btn btn-success" (click)="aceptarSolicitud(evaluacion.id, evaluacion.data.usuario.correo)">Aceptar</button>
+        <button type="button" class="btn btn-danger" (click)="rechazarSolicitud(evaluacion.id, evaluacion.data.usuario.correo)">Rechazar</button>
         <button type="button" class="btn btn-primary" (click)="verInfoEvaluacion(evaluacion)">Ver Info</button>
       </td>
     </tr>

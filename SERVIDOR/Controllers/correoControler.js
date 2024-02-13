@@ -4,6 +4,8 @@ const { db } = require('../firebase.js');
 const nodemailer = require('nodemailer');
 const correoHTMLF1A = require('./correof1A');
 const correoHTMLF1R = require('./correof1R');
+const correoHTMLF2A = require('./correof2A');
+const correoHTMLF2R = require('./correof2R');
 
 //Método para enviar correo Fase 1- Aceptación de solicitud de beca
 const envioCorreoF1A = async (req = request, res = response) => {
@@ -199,7 +201,7 @@ const envioCorreoF2A = async (req = request, res = response) => {
 
     try {
         // Obtener los datos del usuario desde la base de datos
-        const usuarioSnapshot = await db.collection('usuario').doc(id).get();
+        const usuarioSnapshot = await db.collection('evaluacion').doc(id).get();
         const userData = usuarioSnapshot.data();
 
         // Obtener el nombre del usuario
@@ -267,7 +269,7 @@ const envioCorreoF2R = async (req = request, res = response) => {
 
     try {
         // Obtener los datos del usuario desde la base de datos
-        const usuarioSnapshot = await db.collection('usuario').doc(id).get();
+        const usuarioSnapshot = await db.collection('evaluacion').doc(id).get();
         const userData = usuarioSnapshot.data();
 
         // Obtener el nombre del usuario
