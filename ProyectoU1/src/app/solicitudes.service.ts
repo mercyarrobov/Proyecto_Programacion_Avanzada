@@ -53,6 +53,7 @@ export class SolicitudesService {
 
 
   // Nuevos métodos para la verificación
+  // Verificar email existente
   verificarEmailExistente(email: string): Observable<boolean> {
     return this.http.get<boolean>(`${this.url}/verificar-email/${email}`);
   }
