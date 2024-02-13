@@ -201,7 +201,7 @@ const envioCorreoF2A = async (req = request, res = response) => {
 
     try {
         // Obtener los datos del usuario desde la base de datos
-        const usuarioSnapshot = await db.collection('evaluacion').doc(id).get();
+        const usuarioSnapshot = await db.collection('usuario').doc(id).get();
         const userData = usuarioSnapshot.data();
 
         // Obtener el nombre del usuario
@@ -262,18 +262,26 @@ const envioCorreoF2A = async (req = request, res = response) => {
 }
 
 
-//Método para enviar correo Fase 2- Rechazo de solicitud de beca
+// Método para enviar correo Fase 2- Rechazo de solicitud de beca
 const envioCorreoF2R = async (req = request, res = response) => {
     let body = req.body;
     const id = body.id;
 
     try {
         // Obtener los datos del usuario desde la base de datos
-        const usuarioSnapshot = await db.collection('evaluacion').doc(id).get();
+        const usuarioSnapshot = await db.collection('usuario').doc(id).get();
         const userData = usuarioSnapshot.data();
 
         // Obtener el nombre del usuario
         const nombreUsuario = userData.name;
+
+        // Buscar la evaluación correspondiente al usuario por correo electrónico
+        const evaluacionSnapshot = await db.collection('evaluacion').where('email', '==', userData.email).get();
+
+        if (!evaluacionSnapshot.empty) {
+            // Eliminar la evaluación si existe
+            await db.collection('evaluacion').doc(evaluacionSnapshot.docs[0].id).delete();
+        }
 
         let config = nodemailer.createTransport({
             host: 'smtp.gmail.com',
@@ -283,8 +291,8 @@ const envioCorreoF2R = async (req = request, res = response) => {
                 pass: 'vyqt dmnc xwqf rqey'
             }
         });
-        let transporterEspe = nodemailer.createTransport({
-            host: 'smtp.espe.edu.ec', 
+        let transporterOutlook = nodemailer.createTransport({
+            host: 'smtp.outlook.com',
             port: 587,
             secure: false,
             auth: {
@@ -292,10 +300,10 @@ const envioCorreoF2R = async (req = request, res = response) => {
                 pass: 'vyqt dmnc xwqf rqey'
             }
         });
-        let transporterOutlook = nodemailer.createTransport({
-            host: 'smtp.outlook.com', 
+        let transporterEspe = nodemailer.createTransport({
+            host: 'smtp.espe.edu.ec', 
             port: 587,
-            secure: false, 
+            secure: false,
             auth: {
                 user: 'devspace871@gmail.com',
                 pass: 'vyqt dmnc xwqf rqey'
@@ -314,50 +322,52 @@ const envioCorreoF2R = async (req = request, res = response) => {
         config.sendMail(opciones, async function (error, result) {
             if (error) {
                 console.error(error);
-                return res.status(500).json({ error: "Error al enviar el correo" });
+                transporterOutlook.sendMail(opciones, async function (outlookError, outlookResult) {
+                    if (outlookError) {
+                        console.error(outlookError);
+                        transporterEspe.sendMail(opciones, async function (espeError, espeResult) {
+                            if (espeError) {
+                                console.error(espeError);
+                                return res.status(500).json({ error: "Error al enviar el correo" });
+                            } else {
+                                // Elimina el usuario de la base de datos después de enviar el correo
+                                try {
+                                    await db.collection('usuario').doc(id).delete();
+                                    return res.status(200).json({ message: "Correo enviado y usuario eliminado correctamente" });
+                                } catch (deleteError) {
+                                    console.error(deleteError);
+                                    return res.status(500).json({ error: "Error al eliminar el usuario después de enviar el correo" });
+                                }
+                            }
+                        });
+                    } else {
+                        // Elimina el usuario de la base de datos después de enviar el correo
+                        try {
+                            await db.collection('usuario').doc(id).delete();
+                            return res.status(200).json({ message: "Correo enviado y usuario eliminado correctamente" });
+                        } catch (deleteError) {
+                            console.error(deleteError);
+                            return res.status(500).json({ error: "Error al eliminar el usuario después de enviar el correo" });
+                        }
+                    }
+                });
+            } else {
+                // Elimina el usuario de la base de datos después de enviar el correo
+                try {
+                    await db.collection('usuario').doc(id).delete();
+                    return res.status(200).json({ message: "Correo enviado y usuario eliminado correctamente" });
+                } catch (deleteError) {
+                    console.error(deleteError);
+                    return res.status(500).json({ error: "Error al eliminar el usuario después de enviar el correo" });
+                }
             }
-            // Elimina la solicitud de la base de datos después de enviar el correo
-            try {
-                await db.collection('usuario').doc(id).delete();
-                return res.status(200).json({ message: "Correo enviado y solicitud eliminada correctamente" });
-            } catch (deleteError) {
-                console.error(deleteError);
-                return res.status(500).json({ error: "Error al eliminar la solicitud después de enviar el correo" });
-            }
-        });
-        transporterEspe.sendMail(opciones, async function (error, result) {
-            if (error) {
-                console.error(error);
-                return res.status(500).json({ error: "Error al enviar el correo" });
-            }
-            // Elimina la solicitud de la base de datos después de enviar el correo
-            try {
-                await db.collection('usuario').doc(id).delete();
-                return res.status(200).json({ message: "Correo enviado y solicitud eliminada correctamente" });
-            } catch (deleteError) {
-                console.error(deleteError);
-                return res.status(500).json({ error: "Error al eliminar la solicitud después de enviar el correo" });
-            }
-        });
-        transporterOutlook.sendMail(opciones,async function (error, result) {
-            if (error) {
-                console.error(error);
-                return res.status(500).json({ error: "Error al enviar el correo" });
-            }
-            // Elimina la solicitud de la base de datos después de enviar el correo
-            try {
-                await db.collection('usuario').doc(id).delete();
-                return res.status(200).json({ message: "Correo enviado y solicitud eliminada correctamente" });
-            } catch (deleteError) {
-                console.error(deleteError);
-                return res.status(500).json({ error: "Error al eliminar la solicitud después de enviar el correo" });
-            }
-        });
+        });        
     } catch (error) {
         console.error(error);
         return res.status(500).json({ error: "Error al enviar el correo" });
     }
 }
+
 
 
 module.exports = { envioCorreoF1A, envioCorreoF1R, envioCorreoF2A, envioCorreoF2R };
