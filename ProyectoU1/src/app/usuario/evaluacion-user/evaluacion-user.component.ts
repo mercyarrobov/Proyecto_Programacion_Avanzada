@@ -20,7 +20,7 @@ export class EvaluacionUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  private buildForm() {
+  private buildForm() { //Metodo que permite agregar los campos al formulario
     this.form = this.formBuilder.group({
       email: new FormControl('', {
         validators: [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)],
@@ -36,7 +36,7 @@ export class EvaluacionUserComponent implements OnInit {
   }
 
 
-
+//Se guardan los datos 
   save(event: Event) {
     event.preventDefault();
 
@@ -103,7 +103,7 @@ export class EvaluacionUserComponent implements OnInit {
     }
   }
 
-
+  //En caso de que exista un correo se lo valida
   emailExistenteValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const email = control.value;
