@@ -46,7 +46,7 @@ export class FormularioUserComponent implements OnInit {
       name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       fecha_nacimiento: new FormControl('', [Validators.required]),
       genero: new FormControl('', [Validators.required]),
-
+      //validar email existente
       email: new FormControl('', {
         validators: [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)],
         asyncValidators: [this.emailExistenteValidator()],
