@@ -166,7 +166,7 @@ export class FormularioUserComponent implements OnInit {
       this.form.get('cedula')?.setErrors(null);
     }
   }
-
+  //funcion que verifca la existencia de la cedula
   cedulaExistenteValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const cedula = control.value;
