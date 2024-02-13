@@ -34,6 +34,7 @@ export class SolicitudesService {
   }
 
   //metodo par agregar
+  //Agregar usuario
   agregarUsuario(nuevoUsuario: any) {
     return this.http.post(this.url + '/usuarios', nuevoUsuario);
   }
