@@ -51,6 +51,8 @@ export class SolicitudesService {
     return this.http.get<boolean>(`${this.url}/verificar-cedula/${cedula}`);
   }
 
+
+  // Nuevos métodos para la verificación
   verificarEmailExistente(email: string): Observable<boolean> {
     return this.http.get<boolean>(`${this.url}/verificar-email/${email}`);
   }
