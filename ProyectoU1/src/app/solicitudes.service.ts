@@ -32,7 +32,7 @@ export class SolicitudesService {
       })
     );
   }
-  
+
   //metodo par agregar
   agregarUsuario(nuevoUsuario: any) {
     return this.http.post(this.url + '/usuarios', nuevoUsuario);
