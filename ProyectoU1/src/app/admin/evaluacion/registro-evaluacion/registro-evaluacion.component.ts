@@ -20,7 +20,7 @@ export class RegistroEvaluacionComponent implements OnInit {
   ngOnInit(): void {
     this.cargarDatos();
   }
-
+  //Se realiza la carga de datos de las evaluaciones
   cargarDatos() {
     this.solicitudesService.obtenerEvaluaciones().subscribe(
       res => {
