@@ -1,15 +1,22 @@
 <div *ngIf="evaluaciones.length > 0; else noEvaluaciones">
   <h2>Listado de evaluaciones:</h2>
-  <table class="table table-striped">
-    <thead>
+  <table class="table ">
+    <thead class="table-dark">
     <tr>
+      <th>#</th>
       <th>Nombre y Apellido</th>
+
+      <th>Correo</th>
       <th>Acciones</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let evaluacion of evaluaciones">
+    <tr *ngFor="let evaluacion of evaluaciones let i = index">
+      <td scope="row">{{ i + 1}}</td>
       <td>{{ evaluacion.data.usuario.nombre }}</td>
+
+      <td>{{ evaluacion.data.usuario.correo }}</td>
+
       <td>
         <button type="button" class="btn btn-success" (click)="aceptarSolicitud(evaluacion.data.usuario.id, evaluacion.data.usuario.correo)">Aceptar</button>
         <button type="button" class="btn btn-danger" (click)="rechazarSolicitud(evaluacion.data.usuario.id, evaluacion.data.usuario.correo)">Rechazar</button>
