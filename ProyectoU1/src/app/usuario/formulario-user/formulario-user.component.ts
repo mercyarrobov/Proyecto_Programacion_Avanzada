@@ -71,13 +71,13 @@ export class FormularioUserComponent implements OnInit {
   //modificacion de la funcion guardar para que se envie la informacion del formulario
   save(event: Event) {
     event.preventDefault();
-
+    //Verificacion del recapcha
     if (this.form.valid && this.captchaValid) {
       const value = this.form.value;
 
       // Set the default value for paisresidencia
       value.paisresidencia = 'Ecuador';
-
+      //Solicitud de agregar al usuario
       this.SolicitudesService.agregarUsuario(value).subscribe(
         (res) => {
           console.log('Usuario agregado con éxito', res);
@@ -133,7 +133,7 @@ export class FormularioUserComponent implements OnInit {
   }
 
 
-
+  //Se valida la cedula ecuatoriana
   validarCedulaEcuatoriana(): void {
     let cedula = this.form.get('cedula')?.value;
 
@@ -166,7 +166,7 @@ export class FormularioUserComponent implements OnInit {
       this.form.get('cedula')?.setErrors(null);
     }
   }
-  //funcion que verifca la existencia de la cedula
+  //funcion que verifica la existencia de la cedula
   cedulaExistenteValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const cedula = control.value;
