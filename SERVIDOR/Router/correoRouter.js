@@ -49,7 +49,7 @@ app.get('/evaluacion', async (req, res) => {
             }
 
             const userData = usuarioSnapshot.docs[0].data(); // Tomar el primer usuario encontrado (debería ser único)
-            const userId = usuarioSnapshot.docs[0].id; // Obtener el ID del usuario
+            const userId = usuarioSnapshot.docs[0].id; // Obtener el ID del usuario 
 
             // Agregar los datos del usuario a la evaluación
             evaluaciones.push({
