@@ -1,7 +1,7 @@
 <div *ngIf="solicitudes.length > 0; else noSolicitudes">
   <h2>Listado de solicitudes</h2>
-  <table class="table">
-    <thead class="table-dark"> <!-- Gray color for the header -->
+  <table class="custom-table">
+    <thead>
     <tr>
       <th>#</th>
       <th>Nombre y Apellido</th>
@@ -13,7 +13,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let solicitud of solicitudes let i = index"  >
+    <tr *ngFor="let solicitud of solicitudes; let i = index">
       <td scope="row">{{ i + 1}}</td>
       <td>{{ solicitud.data.name }}</td>
       <td>{{ solicitud.data.cedula }}</td>
