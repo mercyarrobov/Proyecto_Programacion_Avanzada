@@ -11,7 +11,7 @@ const correoHTMLF2R = require('./correof2R');
 const envioCorreoF1A = async (req = request, res = response) => {
     let body = req.body;
     const id = body.id;
-
+    //Control de errores mediante try-catch 
     try {
         // Obtener los datos del usuario desde la base de datos
         const usuarioSnapshot = await db.collection('usuario').doc(id).get();
@@ -55,7 +55,7 @@ const envioCorreoF1A = async (req = request, res = response) => {
             to: body.email,
             html: correoHTMLPersonalizado
         };
-
+        //Se verifica el email 
         configGmail.sendMail(opciones, function (error, result) {
             if (error) {
                 console.error(error);
