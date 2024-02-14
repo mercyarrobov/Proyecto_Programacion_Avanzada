@@ -24,7 +24,7 @@ export class SolicitudesService {
   enviarCorreoF1Aceptado(id: string, email: string) {
     return this.http.post(`${this.url}/envioF1A`, { id, email });
   }
-  //Enviar correo de rechazo
+  //Enviar correo de rechazo de la fase 1
   enviarCorreoYEliminar(id: string, email: string) {
     return this.http.post(`${this.url}/envioF1R`, { id, email }).pipe(
       switchMap(() => {
