@@ -113,7 +113,7 @@ export class EvaluacionUserComponent implements OnInit {
       );
     };
   }
-
+  //En caso de que el email exista lo valida
   emailExistenteEvaluacionValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const email = control.value;
