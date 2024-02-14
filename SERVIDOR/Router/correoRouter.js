@@ -7,7 +7,7 @@ const { db } = require('../firebase.js');
 app.use(express.json());
 
 let envio = require('../Controllers/correoControler');
-
+//Metodos de envio 
 app.post('/envioF1A', envio.envioCorreoF1A);
 app.post('/envioF1R', envio.envioCorreoF1R);
 app.post('/envioF2A', envio.envioCorreoF2A);
@@ -47,7 +47,7 @@ app.get('/evaluacion', async (req, res) => {
                 console.error('No se encontró el usuario correspondiente para la evaluación con ID:', doc.id);
                 continue; // Continuar con la siguiente evaluación
             }
-
+            
             const userData = usuarioSnapshot.docs[0].data(); // Tomar el primer usuario encontrado (debería ser único)
             const userId = usuarioSnapshot.docs[0].id; // Obtener el ID del usuario
 
@@ -83,7 +83,7 @@ app.get('/evaluacion', async (req, res) => {
 //Eliminar una solicitud de usuario
 app.delete('/eliminarSolicitud/:id', async (req, res) => {
     const id = req.params.id;
-
+    //Se controla los errores mediante el try-catch
     try {
         // Eliminar la solicitud de la base de datos
         await db.collection('usuario').doc(id).delete();
