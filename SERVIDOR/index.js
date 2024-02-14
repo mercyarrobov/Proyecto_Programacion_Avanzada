@@ -3,7 +3,7 @@ const app = express();
 let cors = require('cors');
 const bodyParser = require('body-parser');
 
-app.use(cors());
+app.use(cors()); //Se importa los cors para el acceso de peticiones 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 

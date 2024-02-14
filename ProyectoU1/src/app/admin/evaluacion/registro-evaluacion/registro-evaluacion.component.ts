@@ -20,18 +20,18 @@ export class RegistroEvaluacionComponent implements OnInit {
   ngOnInit(): void {
     this.cargarDatos();
   }
-
+  //Se realiza la carga de datos de las evaluaciones
   cargarDatos() {
     this.solicitudesService.obtenerEvaluaciones().subscribe(
       res => {
-        this.evaluaciones = res as any[];
+        this.evaluaciones = res as any[]; //Almacena todo las evaluaciones en el array 
       },
       (error) => {
         console.error('Error al cargar las evaluaciones:', error);
       }
     );
   }
-
+  //Se muestra un Dialog para el usuario 
   verInfoEvaluacion(evaluacion: any) {
     this.dialog.open(VerInfoEvaluacionComponent, {
       width: '600px',
@@ -64,7 +64,7 @@ export class RegistroEvaluacionComponent implements OnInit {
       }
     });
   }
-
+  //Se realiza el rechazo de la solicitud pasando dos parametros, el id y el email
   rechazarSolicitud(id: string, email: string) {
     Swal.fire({
       title: '¿Estás seguro de rechazar esta solicitud?',
@@ -76,7 +76,7 @@ export class RegistroEvaluacionComponent implements OnInit {
       confirmButtonText: 'Sí, rechazar',
       cancelButtonText: 'No, cancelar'
     }).then((result) => {
-      if (result.isConfirmed) {
+      if (result.isConfirmed) { //Se verifica en caso de que se rechaze la solicitud
         // Si el usuario hace clic en "Rechazar"
         this.solicitudesService.enviarCorreoF2Rechazado(id, email).subscribe(
           (res: any) => {

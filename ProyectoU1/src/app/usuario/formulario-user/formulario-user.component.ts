@@ -39,6 +39,7 @@ export class FormularioUserComponent implements OnInit {
       //validar cedula ecuatoriana
       cedula: new FormControl('', {
         validators: [Validators.required, Validators.minLength(3), Validators.maxLength(10)],
+        //cedula ecuatoriana existente
         asyncValidators: [this.cedulaExistenteValidator()],
         updateOn: 'blur',
       }),
@@ -46,14 +47,16 @@ export class FormularioUserComponent implements OnInit {
       name: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       fecha_nacimiento: new FormControl('', [Validators.required]),
       genero: new FormControl('', [Validators.required]),
-
+      //validar email existente
       email: new FormControl('', {
         validators: [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)],
         asyncValidators: [this.emailExistenteValidator()],
         updateOn: 'blur',
       }),
       telefono: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]),
-      paisresidencia: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+      paisresidencia: new FormControl(
+      { value: 'Ecuador', disabled: true },
+  [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       nivelEducativo: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       direccion: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       carrera: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
@@ -65,24 +68,30 @@ export class FormularioUserComponent implements OnInit {
     });
   }
 
-  //modificacion de la funcion guardar
+  //modificacion de la funcion guardar para que se envie la informacion del formulario
   save(event: Event) {
     event.preventDefault();
-
+    //Verificacion del recapcha
     if (this.form.valid && this.captchaValid) {
       const value = this.form.value;
 
-      this.SolicitudesService.agregarUsuario(value).subscribe(res => {
-        console.log('Usuario agregado con éxito', res);
-        this.form.reset();
-        this.mostrarMensajeTemporal = true;
-        setTimeout(() => {
+      // Set the default value for paisresidencia
+      value.paisresidencia = 'Ecuador';
+      //Solicitud de agregar al usuario
+      this.SolicitudesService.agregarUsuario(value).subscribe(
+        (res) => {
+          console.log('Usuario agregado con éxito', res);
+          this.form.reset();
+          this.mostrarMensajeTemporal = true;
+          setTimeout(() => {
+            this.mostrarMensajeTemporal = false;
+          }, 3000);
+        },
+        (error) => {
+          console.error('Error al agregar usuario', error);
           this.mostrarMensajeTemporal = false;
-        }, 3000);
-      }, error => {
-        console.error('Error al agregar usuario', error);
-        this.mostrarMensajeTemporal = false;
-      });
+        }
+      );
     } else {
       this.form.markAllAsTouched();
       this.mostrarMensajeTemporal = false;
@@ -124,7 +133,7 @@ export class FormularioUserComponent implements OnInit {
   }
 
 
-
+  //Se valida la cedula ecuatoriana
   validarCedulaEcuatoriana(): void {
     let cedula = this.form.get('cedula')?.value;
 
@@ -157,7 +166,7 @@ export class FormularioUserComponent implements OnInit {
       this.form.get('cedula')?.setErrors(null);
     }
   }
-
+  //funcion que verifica la existencia de la cedula
   cedulaExistenteValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const cedula = control.value;
@@ -167,7 +176,7 @@ export class FormularioUserComponent implements OnInit {
       );
     };
   }
-
+//funcion que verifica la existencia del email
   emailExistenteValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const email = control.value;

@@ -8,7 +8,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class SolicitudesService {
 
-  url = "http://localhost:3000"
+  url = "http://52.90.97.41:3000"
 
   constructor(public http: HttpClient) { }
 
@@ -34,6 +34,7 @@ export class SolicitudesService {
   }
 
   //metodo par agregar
+  //Agregar usuario
   agregarUsuario(nuevoUsuario: any) {
     return this.http.post(this.url + '/usuarios', nuevoUsuario);
   }
@@ -51,6 +52,9 @@ export class SolicitudesService {
     return this.http.get<boolean>(`${this.url}/verificar-cedula/${cedula}`);
   }
 
+
+  // Nuevos métodos para la verificación
+  // Verificar email existente
   verificarEmailExistente(email: string): Observable<boolean> {
     return this.http.get<boolean>(`${this.url}/verificar-email/${email}`);
   }

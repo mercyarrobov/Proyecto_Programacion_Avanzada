@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f368ebd3-58a2-40dc-bfaa-2fe464b221a4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/registro-evaluacion/registro-evaluacion.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/ProyectoU1/src/app/admin/evaluacion/registro-evaluacion/registro-evaluacion.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SERVIDOR/Router/correoRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/Router/correoRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SERVIDOR/cred.json" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/cred.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SERVIDOR/Controllers/correoControler.js" beforeDir="false" afterPath="$PROJECT_DIR$/SERVIDOR/Controllers/correoControler.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,7 @@
       <workItem from="1707700034827" duration="8548000" />
       <workItem from="1707746926279" duration="23785000" />
       <workItem from="1707834628586" duration="4605000" />
-      <workItem from="1707853899740" duration="1943000" />
+      <workItem from="1707853899740" duration="2542000" />
     </task>
     <servers />
   </component>

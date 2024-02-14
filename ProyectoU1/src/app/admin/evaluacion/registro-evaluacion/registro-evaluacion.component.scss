@@ -1,19 +1,25 @@
-/*
+.custom-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 10px;
+}
 
-.table-and-details-container {
-    display: flex;
-  }
+.custom-table th {
+  background-color: #343a40;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
 
-  .table-container {
-    flex: 1;
-    margin-right: 20px;
-  }
+.custom-table td, .custom-table th {
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd; /* Add border for cells */
+}
 
-  .details-container {
-    width: 300px;
-  }
-  */
-
+.custom-table button {
+  margin-right: 5px;
+}
 .btn-margin {
   margin-right: 2px;
 }
