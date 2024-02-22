@@ -8,7 +8,7 @@ import { switchMap } from 'rxjs/operators';
 })
 export class SolicitudesService {
 
-  url = "http://107.22.6.80:3000"
+  url = "http://35.174.199.133:3000"
 
   constructor(public http: HttpClient) { }
 
