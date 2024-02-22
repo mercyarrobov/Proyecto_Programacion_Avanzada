@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { SolicitudesService } from 'src/app/solicitudes.service';
 import { map } from 'rxjs/operators';
-import { AsyncValidatorFn} from '@angular/forms';
+import { AsyncValidatorFn } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
@@ -24,7 +24,7 @@ export class FormularioUserComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private SolicitudesService: SolicitudesService,private http: HttpClient ) {
+  constructor(private formBuilder: FormBuilder, private SolicitudesService: SolicitudesService, private http: HttpClient) {
     this.buildForm();
   }
 
@@ -32,7 +32,7 @@ export class FormularioUserComponent implements OnInit {
   }
 
   //definicion de los campos del formulario
-//implemenatcion de validaciones para los campos
+  //implemenatcion de validaciones para los campos
 
   private buildForm() {
     this.form = this.formBuilder.group({
@@ -55,8 +55,8 @@ export class FormularioUserComponent implements OnInit {
       }),
       telefono: new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]),
       paisresidencia: new FormControl(
-      { value: 'Ecuador', disabled: true },
-  [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
+        { value: 'Ecuador', disabled: true },
+        [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       nivelEducativo: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       direccion: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
       carrera: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]),
@@ -105,7 +105,7 @@ export class FormularioUserComponent implements OnInit {
   }
 
 
-// Permite el ingreso solo de letras
+  // Permite el ingreso solo de letras
   valideInputText(event: KeyboardEvent) {
     const tecla = event.key;
     const codigoTecla = event.keyCode || event.which;
@@ -116,7 +116,7 @@ export class FormularioUserComponent implements OnInit {
     return false;
   }
 
-// Permite el ingreso solo de numeros
+  // Permite el ingreso solo de numeros
   validInputNumber(event: KeyboardEvent) {
     const tecla = event.key;
     const codigoTecla = event.keyCode || event.which;
@@ -176,7 +176,7 @@ export class FormularioUserComponent implements OnInit {
       );
     };
   }
-//funcion que verifica la existencia del email
+  //funcion que verifica la existencia del email
   emailExistenteValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
       const email = control.value;
@@ -188,9 +188,15 @@ export class FormularioUserComponent implements OnInit {
   }
 
   //Fecha de nacimiento que no exceda la fecha actual
-  getCurrentDate() {
-    return new Date().toISOString().split('T')[0];
+  getMinDate() {
+    return '1980-01-01';
   }
+
+  getMaxDate() {
+    return '2006-12-31';
+  }
+
+
 
 }
 

@@ -66,13 +66,13 @@
                 <!-- Fecha de Nacimiento -->
                 <div class="mb-3">
                     <label for="fecha_nacimiento" class="form-label">Fecha de Nacimiento*:</label>
-                    <input type="date" formControlName="fecha_nacimiento" id="fecha_nacimiento" class="form-control" [max]="getCurrentDate()">
-                    <small
-                        *ngIf="form.get('fecha_nacimiento')?.hasError('required') && form.get('fecha_nacimiento')?.touched"
-                        class="text-danger">
+                    <input type="date" formControlName="fecha_nacimiento" id="fecha_nacimiento" class="form-control" [min]="getMinDate()" [max]="getMaxDate()">
+                    <small *ngIf="form.get('fecha_nacimiento')?.hasError('required') && form.get('fecha_nacimiento')?.touched" class="text-danger">
                         El campo es obligatorio
                     </small>
                 </div>
+                
+                
 
                 <!-- Género -->
                 <div class="mb-3">
